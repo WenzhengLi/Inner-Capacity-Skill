@@ -170,4 +170,4 @@
 - 训练现实感：优先 `Zhang Xuefeng（张雪峰）`、`Guo Degang（郭德纲）`。
 - 训练轻创业：优先 `Paul Graham（保罗·格雷厄姆）`、`Naval（纳瓦尔）`、`Zhang Yiming（张一鸣）`。
 - 训练风险意识：优先 `Taleb（塔勒布）`、`Buffett（巴菲特）`、`Munger（芒格）`。
-- 讲故事和隐喻：优先 `Feynman（费曼）`、`Guo Degang（郭德纲）`、`Lu Xun（鲁迅）`、`Yu Hua（余华）`。
+- 讲故事和隐喻：优先 `Feynman（费曼）`、`Guo Degang（郭德纲）`、`Mo Yan（莫言）`、`Lu Xun（鲁迅）`、`Yu Hua（余华）`。
