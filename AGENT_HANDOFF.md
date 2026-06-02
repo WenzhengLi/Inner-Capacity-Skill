@@ -73,3 +73,13 @@ Related self-distillation direction:
 - Do not copy the user's current patterns blindly; distinguish current self, higher self, and reconstructable growth system.
 - Do not turn the Skill into fortune-telling, motivational slogans, or a fixed ideology.
 - Preserve user agency. The Skill can diagnose, question, and train, but should not make major life decisions for the user.
+
+## Current Interaction Rules
+
+- `【开始】` triggers the daily growth check-in.
+- `【讲故事】` triggers one story-based thinking-model training session.
+- `【继续】` is no longer a story trigger; interpret it only in the current conversational context.
+- Story mode must start with the actual story name as the top title, not the generic word `故事`.
+- Story mode rotates writing approaches in this order: 莫言式 -> 契诃夫式 -> 莫泊桑式 -> 欧亨利式 -> repeat.
+- Story mode should read the latest non-empty `写法流派` in `STORY_TRAINING_LOG.md` and choose the next one. If none exists, start with 莫言式.
+- Each story log row records: time, story name, writing approach, concept, example count, and acceptance score. Existing older story rows can leave writing approach blank.
