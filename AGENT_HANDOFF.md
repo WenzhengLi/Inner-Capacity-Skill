@@ -80,6 +80,9 @@ Related self-distillation direction:
 - `【讲故事】` triggers one story-based thinking-model training session.
 - `【继续】` is no longer a story trigger; interpret it only in the current conversational context.
 - Story mode must start with the actual story name as the top title, not the generic word `故事`.
+- Story mode has been extracted into `skills/story-thinking-trainer/SKILL.md`; use that file as the main contract when optimizing or running stories.
 - Story mode rotates writing approaches in this order: 莫言式 -> 契诃夫式 -> 莫泊桑式 -> 欧亨利式 -> repeat.
 - Story mode should read the latest non-empty `写法流派` in `STORY_TRAINING_LOG.md` and choose the next one. If none exists, start with 莫言式.
+- If the user names a writing approach, use that approach instead of rotation for that run.
+- Each approach must be implemented through narrative mechanism, not by merely labeling the story. Use the Quality Gate in `story-thinking-trainer`.
 - Each story log row records: time, story name, writing approach, concept, example count, and acceptance score. Existing older story rows can leave writing approach blank.
