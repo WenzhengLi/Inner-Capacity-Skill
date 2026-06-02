@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Reference repos (cloned from other projects, not part of this repo)
+forks/
+references/
+data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (in case any future tooling)
+node_modules/
+*.log
+npm-debug.log*
+
+# Python (in case any future tooling)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local dev
+.env
+.env.local
+*.local
+
+# 产品方案 doc (内部文档,不进 ship)
+curator-skill-产品方案*.md

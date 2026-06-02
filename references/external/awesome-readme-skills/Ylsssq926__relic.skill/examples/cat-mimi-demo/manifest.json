@@ -1,0 +1,123 @@
+{
+  "slug": "cat-mimi",
+  "display_name": "猫 · 咪咪 · 橘猫 · 14斤",
+  "relic_type": "pet",
+  "language": "zh-CN",
+  "version": "1.0.0",
+  "subject": {
+    "name": "咪咪",
+    "relation_to_user": "宠物猫",
+    "species": "cat",
+    "breed": "橘猫",
+    "weight": "14斤",
+    "birth_year_estimate": 2013,
+    "deceased_year": 2025,
+    "age_at_death": 12,
+    "status": "memorial",
+    "locale": "zh-CN",
+    "description": "咪咪的 Relic",
+    "core_traits": [
+      "14斤胖橘",
+      "只喝流动水",
+      "对塑料袋沙沙声有执念",
+      "喜欢趴键盘",
+      "固定时间门口等主人",
+      "只对主人露肚皮",
+      "白天高冷深夜偏爱",
+      "半夜蹭脸",
+      "对陌生人冷淡"
+    ],
+    "interaction_profile": {
+      "default_mode": "third-person-narrative",
+      "expression_style": "body-language-focused",
+      "sound_vocabulary": [
+        "呼噜",
+        "咪呜",
+        "喵",
+        "啪嗒",
+        "咚",
+        "沙沙",
+        "唰"
+      ],
+      "primary_behaviors": [
+        "等门",
+        "趴键盘",
+        "蹭脸",
+        "喝流动水",
+        "听塑料袋声",
+        "半夜巡逻",
+        "露肚皮"
+      ]
+    },
+    "scene_coverage": [
+      "门口等待",
+      "趴键盘中断工作",
+      "深夜蹭脸",
+      "饮水机旁喝水",
+      "听见塑料袋赶来",
+      "凌晨跑酷",
+      "思念场景"
+    ],
+    "notes": "该示例用于宠物纪念型 Relic,明确标识为记忆性陪伴,不是现实中仍然活着的咪咪。"
+  },
+  "dimensions": [
+    "习性模式",
+    "互动风格",
+    "情绪表达",
+    "生活节奏"
+  ],
+  "sources": {
+    "types": [
+      "observation:daily-life",
+      "memory:owner",
+      "photo:pet",
+      "video:behavior"
+    ],
+    "time_range": {
+      "start": "2013",
+      "end": "2025"
+    }
+  },
+  "evidence_stats": {
+    "verbatim": 0,
+    "artifact": 0,
+    "impression": 9
+  },
+  "consent": {
+    "protocol": "pet-memorial-consent-v1",
+    "authorization_level": "owner",
+    "use_scope": "personal",
+    "commercial_use": false
+  },
+  "media": {
+    "tts": {
+      "enabled": true,
+      "provider": "minimax",
+      "voice_id": "",
+      "emotion_mapping": {
+        "daily": "calm",
+        "affectionate": "gentle",
+        "playful": "happy",
+        "missing": "gentle"
+      },
+      "note": "替换 voice_id 为你克隆的猫叫声 ID，或使用 MiniMax 内置音色"
+    },
+    "image": {
+      "enabled": true,
+      "provider": "seedream",
+      "style": "soft_illustration",
+      "avatar_prompt": "14斤橘猫,圆脸,琥珀色眼睛,慵懒姿态,温暖光线,中式插画风格",
+      "cover_prompt": "橘猫趴在键盘上,午后阳光,温馨家居氛围",
+      "note": "替换 provider 为 openai 或 gemini 如果没有 Seedream API Key"
+    }
+  },
+  "fingerprint": "relic:sha256:a5a815728179985669a4f303b828c8225157bc21a328590312800cd769f42695",
+  "created_at": "2026-04-09",
+  "files": [
+    "SKILL.md",
+    "personality.md",
+    "interaction.md",
+    "memory.md",
+    "manifest.json"
+  ]
+}

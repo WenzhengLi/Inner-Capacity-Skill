@@ -1,0 +1,22 @@
+app = "dak-worker"
+primary_region = "nrt"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[deploy]
+  strategy = "immediate"
+
+[env]
+  DAK_SERVER_URL = "https://dak-news.com"
+  ONCE = "1"
+
+# Scheduled worker: Fly starts this machine hourly, it runs once and exits.
+# restart=never so a clean exit (code 0) keeps the machine stopped until next schedule.
+[[restart]]
+  policy = "never"
+
+[[vm]]
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1

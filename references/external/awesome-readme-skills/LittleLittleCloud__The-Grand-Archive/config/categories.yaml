@@ -1,0 +1,31 @@
+# 分类定义
+# 每个分类对应 feeds/ 下的一个子目录
+
+categories:
+  - id: blog
+    name: 博客
+    description: 博客文章与个人观点
+
+  - id: finance
+    name: 财经
+    description: 财经资讯、股市、经济数据与投资
+
+  - id: news
+    name: 国际新闻
+    description: 国际形势、地缘政治与深度报道
+
+  - id: podcast
+    name: 播客
+    description: 播客节目与音频内容
+
+  - id: social
+    name: 社交热点
+    description: 推特趋势、微博热搜与社交平台热点
+
+  - id: tech
+    name: 科技
+    description: 科技资讯、产品动态与技术趋势
+
+  - id: uncategorized
+    name: 未分类
+    description: 尚未归类的订阅源

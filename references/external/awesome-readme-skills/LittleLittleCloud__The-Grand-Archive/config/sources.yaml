@@ -1,0 +1,359 @@
+# RSS 订阅源配置
+# 聚焦：财经 · 地缘政治 · 国际形势 · 股市 · 经济 · 社交热点
+
+sources:
+  # ── 国际新闻 / 地缘政治 ──────────────────────────
+  - name: BBC 中文
+    url: https://feeds.bbci.co.uk/zhongwen/simp/rss.xml
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [国际, 地缘政治]
+    description: BBC 中文新闻
+
+  - name: 纽约时报中文
+    url: https://cn.nytimes.com/rss/
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [国际, 深度]
+    description: 纽约时报中文版
+
+  - name: Reuters World
+    url: https://feeds.reuters.com/Reuters/worldNews
+    category: news
+    enabled: false  # Feedburner 域名已停服
+    fetch_interval: 1800
+    tags: [国际, 地缘政治]
+    description: 路透社国际新闻
+
+  - name: Al Jazeera
+    url: https://www.aljazeera.com/xml/rss/all.xml
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [国际, 中东, 地缘政治]
+    description: 半岛电视台全球新闻
+
+  - name: AP News
+    url: "{{RSSHUB_BASE_URL}}/apnews/topics/apf-topnews"
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [国际, 时事]
+    description: 美联社头条 (via RSSHub)
+
+  - name: Foreign Affairs
+    url: https://www.foreignaffairs.com/rss.xml
+    category: news
+    enabled: true
+    fetch_interval: 7200
+    tags: [地缘政治, 外交, 深度]
+    description: 外交事务杂志，国际关系深度分析
+
+  - name: The Diplomat
+    url: https://thediplomat.com/feed/
+    category: news
+    enabled: true
+    fetch_interval: 3600
+    tags: [地缘政治, 亚太, 深度]
+    description: 亚太时事与地缘政治深度分析
+
+  - name: 参考消息 · 第一关注
+    url: "{{RSSHUB_BASE_URL}}/cankaoxiaoxi/column/diyi"
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [国际, 时事]
+    description: 参考消息第一关注栏目 (via RSSHub)
+
+  - name: 参考消息 · 国际
+    url: "{{RSSHUB_BASE_URL}}/cankaoxiaoxi/column/gj"
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [国际, 地缘政治]
+    description: 参考消息国际栏目 (via RSSHub)
+
+  - name: 人民网
+    url: "{{RSSHUB_BASE_URL}}/people"
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [国内, 时事]
+    description: 人民网首页头条 (via RSSHub)
+
+  - name: The Economist
+    url: "{{RSSHUB_BASE_URL}}/economist/latest"
+    category: news
+    enabled: false  # 目标站 403 反爬
+    fetch_interval: 7200
+    tags: [国际, 经济, 深度]
+    description: 经济学人最新文章 (via RSSHub)
+
+  - name: FT 中文网
+    url: "{{RSSHUB_BASE_URL}}/ft/chinese/hotstoryby7day"
+    category: news
+    enabled: false  # 路由已移除
+    fetch_interval: 3600
+    tags: [国际, 财经, 深度]
+    description: 金融时报中文网热门 (via RSSHub)
+
+  - name: 端传媒
+    url: "{{RSSHUB_BASE_URL}}/initium/latest"
+    category: news
+    enabled: false  # 路由已移除
+    fetch_interval: 3600
+    tags: [国际, 深度, 华语]
+    description: 端传媒深度报道 (via RSSHub)
+
+  - name: Hacker News
+    url: https://hnrss.org/frontpage
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [创业, YC]
+    description: Y Combinator 技术社区
+
+  # ── 财经 / 经济 ──────────────────────────────────
+  - name: 华尔街见闻
+    url: "{{RSSHUB_BASE_URL}}/wallstreetcn/news/global"
+    category: finance
+    enabled: true
+    fetch_interval: 1800
+    tags: [财经, 全球市场]
+    description: 华尔街见闻全球资讯 (via RSSHub)
+
+  - name: 第一财经
+    url: "{{RSSHUB_BASE_URL}}/yicai/brief"
+    category: finance
+    enabled: true
+    fetch_interval: 1800
+    tags: [财经, 宏观]
+    description: 第一财经要闻 (via RSSHub)
+
+  - name: Bloomberg Markets
+    url: https://feeds.bloomberg.com/markets/news.rss
+    category: finance
+    enabled: true
+    fetch_interval: 1800
+    tags: [财经, 全球市场]
+    description: 彭博社市场新闻
+
+  - name: CNBC Economy
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258
+    category: finance
+    enabled: true
+    fetch_interval: 1800
+    tags: [经济, 美国]
+    description: CNBC 经济频道
+
+  - name: CNBC Top News
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [新闻, 美国]
+    description: CNBC 美国头条新闻
+
+  - name: CNBC World News
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [新闻, 国际]
+    description: CNBC 国际新闻
+
+  - name: CNBC US News
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15837362
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [新闻, 美国]
+    description: CNBC 美国新闻
+
+  - name: CNBC Asia News
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19832390
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [新闻, 亚洲]
+    description: CNBC 亚洲新闻
+
+  - name: CNBC Europe News
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19794221
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [新闻, 欧洲]
+    description: CNBC 欧洲新闻
+
+  - name: CNBC Politics
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000113
+    category: news
+    enabled: true
+    fetch_interval: 1800
+    tags: [政治, 美国]
+    description: CNBC 政治新闻
+
+  - name: CNBC Investing
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839069
+    category: finance
+    enabled: true
+    fetch_interval: 1800
+    tags: [投资, 美国]
+    description: CNBC 投资频道
+
+  - name: CNBC Business
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10001147
+    category: finance
+    enabled: true
+    fetch_interval: 1800
+    tags: [商业, 美国]
+    description: CNBC 商业新闻
+
+  - name: CNBC Tech
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19854910
+    category: tech
+    enabled: true
+    fetch_interval: 1800
+    tags: [科技, 美国]
+    description: CNBC 科技新闻
+
+  - name: CNBC Energy
+    url: https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19836768
+    category: finance
+    enabled: true
+    fetch_interval: 1800
+    tags: [能源, 美国]
+    description: CNBC 能源频道
+
+  - name: Reuters Business
+    url: https://feeds.reuters.com/reuters/businessNews
+    category: finance
+    enabled: false  # Feedburner 域名已停服
+    fetch_interval: 1800
+    tags: [财经, 商业]
+    description: 路透社商业新闻
+
+  - name: MarketWatch
+    url: https://feeds.marketwatch.com/marketwatch/topstories/
+    category: finance
+    enabled: true
+    fetch_interval: 1800
+    tags: [股市, 财经]
+    description: MarketWatch 头条
+
+  - name: 财新网
+    url: "{{RSSHUB_BASE_URL}}/caixin/latest"
+    category: finance
+    enabled: true
+    fetch_interval: 3600
+    tags: [财经, 宏观, 深度]
+    description: 财新网最新报道 (via RSSHub)
+
+  # ── 股市 ─────────────────────────────────────────
+  - name: 雪球热帖
+    url: "{{RSSHUB_BASE_URL}}/xueqiu/hots"
+    category: finance
+    enabled: true
+    fetch_interval: 3600
+    tags: [雪球, 股票, 热门]
+    description: 雪球热门讨论 (via RSSHub)
+
+  - name: 雪球今日话题
+    url: "{{RSSHUB_BASE_URL}}/xueqiu/today"
+    category: finance
+    enabled: false  # 路由异常，待 RSSHub 修复
+    fetch_interval: 3600
+    tags: [雪球, 投资]
+    description: 雪球今日热门话题 (via RSSHub)
+
+  - name: 东方财富股吧热帖
+    url: "{{RSSHUB_BASE_URL}}/eastmoney/report/strategyreport"
+    category: finance
+    enabled: false  # 路由已移除
+    fetch_interval: 3600
+    tags: [A股, 研报]
+    description: 东方财富策略研报 (via RSSHub)
+
+  - name: 财联社电报
+    url: "{{RSSHUB_BASE_URL}}/cls/telegraph"
+    category: finance
+    enabled: true
+    fetch_interval: 900
+    tags: [A股, 财经, 快讯]
+    description: 财联社电报快讯 (via RSSHub)
+
+  - name: 东方财富财经资讯
+    url: "{{RSSHUB_BASE_URL}}/eastmoney/search/A%E8%82%A1"
+    category: finance
+    enabled: true
+    fetch_interval: 1800
+    tags: [A股, 财经, 资讯]
+    description: 东方财富A股资讯 (via RSSHub)
+
+  - name: 同花顺实时快讯
+    url: "{{RSSHUB_BASE_URL}}/10jqka/realtimenews"
+    category: finance
+    enabled: true
+    fetch_interval: 900
+    tags: [A股, 快讯, 行情]
+    description: 同花顺7×24小时实时快讯 (via RSSHub)
+
+  - name: Investing.com 经济日历
+    url: "{{RSSHUB_BASE_URL}}/investing/calendar"
+    category: finance
+    enabled: false  # 路由已移除
+    fetch_interval: 3600
+    tags: [经济, 数据, 日历]
+    description: 全球重要经济数据日历 (via RSSHub)
+
+  # ── 推特 / 社交热点 ──────────────────────────────
+  - name: X 热门趋势 (全球)
+    url: "{{RSSHUB_BASE_URL}}/x/trends"
+    category: social
+    enabled: false  # X/Twitter 路由在新版 RSSHub 中已移除
+    fetch_interval: 1800
+    tags: [推特, 热搜, 全球]
+    description: X/Twitter 全球趋势 (via RSSHub)
+
+  - name: 微博热搜
+    url: "{{RSSHUB_BASE_URL}}/weibo/search/hot"
+    category: social
+    enabled: true
+    fetch_interval: 1800
+    tags: [微博, 热搜]
+    description: 微博实时热搜 (via RSSHub)
+
+  - name: 知乎热榜
+    url: "{{RSSHUB_BASE_URL}}/zhihu/hot"
+    category: social
+    enabled: true
+    fetch_interval: 3600
+    tags: [知乎, 热榜]
+    description: 知乎热门问题 (via RSSHub)
+
+  - name: Elon Musk (@elonmusk)
+    url: "{{RSSHUB_BASE_URL}}/x/user/elonmusk"
+    category: social
+    enabled: false  # X/Twitter 路由在新版 RSSHub 中已移除
+    fetch_interval: 1800
+    tags: [推特, 科技, 商业]
+    description: Elon Musk 推特动态 (via RSSHub)
+
+  - name: ZeroHedge
+    url: https://feeds.feedburner.com/zerohedge/feed
+    category: finance
+    enabled: true
+    fetch_interval: 1800
+    tags: [财经, 另类观点, 宏观]
+    description: ZeroHedge 财经与地缘分析
+
+  - name: 金十数据
+    url: "{{RSSHUB_BASE_URL}}/jin10"
+    category: finance
+    enabled: true
+    fetch_interval: 900
+    tags: [财经, 快讯, 数据]
+    description: 金十数据财经快讯 (via RSSHub)

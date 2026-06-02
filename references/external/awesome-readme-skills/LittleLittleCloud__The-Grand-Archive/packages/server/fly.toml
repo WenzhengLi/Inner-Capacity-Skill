@@ -1,0 +1,32 @@
+app = "dak-server"
+primary_region = "nrt"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[deploy]
+  strategy = "immediate"
+
+[env]
+  PORT = "3000"
+  DB_PATH = "/data/dak.db"
+
+[processes]
+  app = "sh -c 'litestream restore -config /etc/litestream.yml -if-db-not-exists -if-replica-exists /data/dak.db || true; exec litestream replicate -exec \"bun run /app/index.js\"'"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1
+
+[[mounts]]
+  source = "dak_data"
+  destination = "/data"

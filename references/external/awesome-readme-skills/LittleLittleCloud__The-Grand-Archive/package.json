@@ -1,0 +1,20 @@
+{
+  "name": "大案牍库",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "predeploy:server": "bun run scripts/check-fly-single-machine.ts",
+    "deploy:server": "bun run predeploy:server && fly deploy --config packages/server/fly.toml"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@drawio/mcp": "^1.2.2",
+    "@types/bun": "latest",
+    "@types/node": "^25.5.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

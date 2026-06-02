@@ -1,0 +1,24 @@
+{
+  "enabled": true,
+  "user_city": "北京",
+  "holidays": {
+    "enabled": true,
+    "list": ["spring_festival", "mid_autumn", "birthday:1998-05-20"]
+  },
+  "anniversaries": {
+    "enabled": true,
+    "dates": [
+      {"date": "2023-03-15", "label": "最后一次视频通话", "type": "bittersweet"},
+      {"date": "2010-01-01", "label": "第一次教我包饺子", "type": "happy"}
+    ]
+  },
+  "weather": {
+    "enabled": false
+  },
+  "random_miss": {
+    "enabled": true,
+    "min_interval_days": 14
+  },
+  "quiet_hours": {"start": "23:00", "end": "07:00"},
+  "global_max_per_week": 2
+}

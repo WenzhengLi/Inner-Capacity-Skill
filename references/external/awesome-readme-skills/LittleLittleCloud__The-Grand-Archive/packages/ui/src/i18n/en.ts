@@ -1,0 +1,166 @@
+export default {
+  // AppBar
+  nav: {
+    home: "Home",
+    search: "Search",
+    feeds: "Feeds",
+    apiKeys: "API Keys",
+    signIn: "Sign in",
+    signOut: "Sign out",
+  },
+
+  // Hero
+  hero: {
+    title1: "The Grand Archive",
+    title2: "",
+    subtitle:
+      "The Grand Archive is a real-time RSS-based news database designed for AI agents. Tracking 20+ authoritative sources with 15,000+ entries.",
+    discord: "Join Discord",
+    github: "View on GitHub",
+    tracking: "Tracking",
+  },
+
+  // Stats
+  stats: {
+    totalEntries: "Total Entries",
+    categories: "Categories",
+    sources: "Sources",
+    lastUpdated: "Last Updated",
+  },
+
+  // Features
+  features: {
+    title: "Capabilities",
+    aiNative: "AI Skills",
+    aiNativeDesc:
+      "Seamlessly integrates into your agent via AI Skills. Works with Claude, Clawdbot, and more — no extra setup needed.",
+    fullTextSearch: "Full-Text Search",
+    fullTextSearchDesc:
+      "Fuzzy + prefix matching across every entry. Multi-dimensional filters by category, source, and date.",
+    liveSources: "20+ Live Sources",
+    liveSourcesDesc:
+      "Finance, geopolitics, tech, and social trending — updated every 30 minutes.",
+    sdk: "TypeScript SDK",
+    sdkDesc: "Typed HTTP client. Supports ESM and CJS. One npm install away.",
+    cli: "CLI Tool",
+    cliDesc:
+      'dak search "tariff" — one-liner searches and feed browsing from your terminal.',
+    tieredAccess: "Tiered Access",
+    tieredAccessDesc:
+      "Anonymous (28 days), Free (90 days), Premium (unlimited history and higher rate limits).",
+  },
+
+  // Integration
+  integration: {
+    title: "Integration",
+  },
+
+  // Steps
+  steps: {
+    title: "Three Steps",
+    installTitle: "Install",
+    installDesc:
+      "npm install @littlelittlecloud/dak — or add the Claude Skill to your AI agent.",
+    queryTitle: "Query",
+    queryDesc:
+      "Search with the SDK, CLI, or natural language through your AI agent.",
+    analyzeTitle: "Analyze",
+    analyzeDesc:
+      "Get structured results with metadata — source, date, category, relevance score.",
+  },
+
+  // Access Tiers
+  tiers: {
+    title: "Access Tiers",
+    anonymous: "Anonymous",
+    free: "Free",
+    premium: "Premium",
+    days28: "28 days",
+    days90: "90 days",
+    unlimited: "Unlimited",
+    ofSearchHistory: "of search history",
+    fullArchiveAccess: "full archive access",
+    fullTextSearch: "Full-text search",
+    allCategoriesSources: "All categories & sources",
+    rateLimit10: "10 requests / min",
+    rateLimit60: "60 requests / min",
+    rateLimit120: "120 requests / min",
+    apiKeyAccess: "API key access",
+    everythingInFree: "Everything in Free",
+    unlimitedHistory: "Unlimited history",
+    dedicatedSupport: "Dedicated support",
+    noSignUp: "No sign-up required",
+    signInToStart: "Sign in to get started",
+    contactUs: "Contact us",
+  },
+
+  // FAQ
+  faq: {
+    title: "Frequently Asked Questions",
+    q1: "What is dak-news (The Grand Archive)?",
+    a1: "dak-news is a real-time news aggregation database purpose-built for AI agents and LLM workflows. It continuously ingests articles from 20+ authoritative sources — Bloomberg, CNBC, BBC, AP News, Hacker News, and more — and exposes them through a structured API so that AI agents can search, filter, and cite real news without hallucinating.",
+    q2: "How is dak-news different from Google News or other news aggregators?",
+    a2: "Traditional aggregators are designed for humans browsing headlines. dak-news is designed for machines. Every entry is structured with metadata (source, category, date, relevance score), searchable via full-text API, and accessible through a TypeScript SDK, CLI, or plain REST — so your AI agent can query the news programmatically instead of scraping web pages.",
+    q3: "Which news sources does dak-news track?",
+    a3: "We track 20+ sources across four categories: Finance & Macro (Bloomberg, CNBC, MarketWatch, 华尔街见闻, 第一财经, 财新网, ZeroHedge, 金十数据, 雪球), International & Geopolitics (BBC Chinese, NYT Chinese, Al Jazeera, AP News, Foreign Affairs, The Diplomat, 参考消息, 人民网), Tech (Hacker News), and Social Trending (Weibo Hot, Zhihu Hot). New sources are added regularly.",
+    q4: "How do I connect dak-news to my AI agent (Claude, Clawdbot, etc.)?",
+    a4: "The fastest way is to share dak-news.com/AGENTS.md with your agent — it contains everything the agent needs to start querying news immediately. For deeper integration, you can install the dak AI Skill ('npx skills add LittleLittleCloud/The-Grand-Archive'), use the TypeScript SDK (@littlelittlecloud/dak), the CLI tool (@littlelittlecloud/dak-cli), or call the REST API directly at dak-news.com/api.",
+    q5: "Is dak-news free to use?",
+    a5: "Yes — anonymous access gives you 28 days of search history with no sign-up required. A free account extends that to 90 days with higher rate limits and API key access. Premium plans offer unlimited history and dedicated support for production workloads.",
+  },
+
+  // Footer
+  footer: {
+    brand: "THE GRAND ARCHIVE",
+    tagline: "THE GRAND ARCHIVE",
+  },
+
+  // Search
+  search: {
+    placeholder: "Search entries...",
+    button: "Search",
+    showAdvanced: "Advanced Search",
+    hideAdvanced: "Hide Advanced",
+    category: "Category",
+    allCategories: "All Categories",
+    source: "Source",
+    sourcePlaceholder: "e.g. Bloomberg, CNBC",
+    from: "From",
+    to: "To",
+    clearFilters: "Clear Filters",
+    resultsFor: "RESULTS FOR",
+    sortBy: "SORT",
+    sortRelevance: "Relevance",
+    sortNewest: "Newest First",
+    sortOldest: "Oldest First",
+    sortTitle: "Title A–Z",
+    tierNotice: "Showing results from {{date}} onward ({{tier}} tier)",
+    prev: "Prev",
+    next: "Next",
+  },
+
+  // Entry
+  entry: {
+    loading: "Loading entry…",
+    back: "Back",
+    noContent: "No content available for this entry.",
+    viewOriginal: "View Original",
+  },
+
+  // Feeds
+  feeds: {
+    title: "Feed Status",
+    subtitle: "Live update status for all tracked sources over the past 90 days.",
+    loading: "Loading feed status…",
+    lastUpdated: "Last Updated",
+    dateRange: "Date Range",
+    entryCount: "Entries",
+    active: "Active",
+    stale: "Stale (>2h)",
+    minutesAgo: "{{n}}m ago",
+    hoursAgo: "{{n}}h ago",
+    daysAgo: "{{n}}d ago",
+    less: "Less",
+    more: "More",
+  },
+} as const;

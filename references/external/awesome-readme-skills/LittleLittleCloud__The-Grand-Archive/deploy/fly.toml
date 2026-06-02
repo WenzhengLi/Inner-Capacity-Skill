@@ -1,0 +1,35 @@
+# fly.toml app configuration file generated for da-an-du-ku-rsshub on 2026-03-20T17:11:26-07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'da-an-du-ku-rsshub'
+primary_region = 'nrt'
+
+[build]
+  image = 'diygod/rsshub:chromium-bundled'
+
+[env]
+  CACHE_EXPIRE = '3600'
+  CACHE_TYPE = 'memory'
+  NODE_ENV = 'production'
+  REQUEST_TIMEOUT = '30000'
+  PUPPETEER_EXECUTABLE_PATH = '/usr/bin/chromium'
+
+[http_service]
+  internal_port = 1200
+  force_https = true
+  auto_stop_machines = 'suspend'
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = 'connections'
+    hard_limit = 100
+    soft_limit = 80
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 1024
