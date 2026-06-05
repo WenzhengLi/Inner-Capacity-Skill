@@ -10,7 +10,13 @@
   "preferred_story_styles": [],
   "health_enabled": false,
   "destiny_enabled": false,
+  "side_task_enabled": true,
+  "chat_analysis_enabled": true,
   "assessment_mode": "full_50",
+  "side_task_plan": {
+    "next_task_index": 1,
+    "active_task_ids": []
+  },
   "assessment_plan": {
     "total_questions": 50,
     "answered_count": 0,

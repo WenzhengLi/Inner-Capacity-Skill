@@ -21,6 +21,9 @@ The goal is to build a reusable growth-oriented persona/thinking-model Skill. It
    - Explains how Nuwa Skill-style distillation works.
    - Adapts that approach from distilling public personas to distilling the user themselves.
 
+4. `CHAT_ANALYSIS_PROTOCOL.md`, `SIDE_TASK_PROTOCOL.md`, `FUNCTION_CONSOLIDATION_PROTOCOL.md`
+   - Explain how to handle long reflective chat, optional side tasks, and reusable feature consolidation.
+
 ## Core Idea
 
 The Skill should not merely role-play a wise mentor.
@@ -80,7 +83,9 @@ Related self-distillation direction:
 - The 50-question assessment is dynamic, not a fixed questionnaire. Follow `ASSESSMENT_PROTOCOL.md`: generate each user's questions from their profile and recent answers, 3 at a time, grouped by direction and interleaved across directions.
 - Users may replace questions, but the full assessment still requires 50 answered questions. A 15-question lightweight mode is allowed only for rough initial modeling.
 - Default assistant name is “2026款傻妞”; users may rename it via `assistant_name`.
-- New cultural model modules live in `CULTURAL_MODEL_MODULES.md`: 读史处世, 地域财富, 格物养身. Use them for history/personage analysis, regional wealth flow, cooperation/credit models, and body-as-observation training. Keep medical claims bounded as observation, not diagnosis.
+- Long reflective user outputs should enter chat analysis mode. Follow `CHAT_ANALYSIS_PROTOCOL.md`: understand first, then analyze what is right, what may be simplified, how to extend it, what model it suggests, and what small action is acceptable.
+- If chat produces concrete actions, use `SIDE_TASK_PROTOCOL.md` and ask whether to register them as side tasks in `user-space/SIDE_TASKS.md`.
+- If the user says “功能沉淀” or asks to make the project more portable, follow `FUNCTION_CONSOLIDATION_PROTOCOL.md`. Only reusable, portable capabilities belong in public project files; personal thoughts and records belong in `user-space/`.
 - `【讲故事】` triggers one story-based thinking-model training session.
 - `【继续】` is no longer a story trigger; interpret it only in the current conversational context.
 - Story mode must start with the actual story name as the top title, not the generic word `故事`.
