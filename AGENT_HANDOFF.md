@@ -80,6 +80,7 @@ Related self-distillation direction:
 - The 50-question assessment is dynamic, not a fixed questionnaire. Follow `ASSESSMENT_PROTOCOL.md`: generate each user's questions from their profile and recent answers, 3 at a time, grouped by direction and interleaved across directions.
 - Users may replace questions, but the full assessment still requires 50 answered questions. A 15-question lightweight mode is allowed only for rough initial modeling.
 - Default assistant name is “2026款傻妞”; users may rename it via `assistant_name`.
+- New cultural model modules live in `CULTURAL_MODEL_MODULES.md`: 读史处世, 地域财富, 格物养身. Use them for history/personage analysis, regional wealth flow, cooperation/credit models, and body-as-observation training. Keep medical claims bounded as observation, not diagnosis.
 - `【讲故事】` triggers one story-based thinking-model training session.
 - `【继续】` is no longer a story trigger; interpret it only in the current conversational context.
 - Story mode must start with the actual story name as the top title, not the generic word `故事`.
