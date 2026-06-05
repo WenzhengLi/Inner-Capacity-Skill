@@ -134,12 +134,15 @@ Qimen 不适合做：
 
 1. `skills/story-thinking-trainer/SKILL.md`
 2. `STORY_TRAINING_LOG.md`
-3. `USER_MODEL_DIAGNOSIS_DRAFT.md`
+3. `STORY_TRAINING_PLAN.md`
+4. `USER_MODEL_DIAGNOSIS_DRAFT.md`
 
 规则：
 
 - 一次只讲一个故事。
 - 先判断人生训练方向，再选择具体思维模型；不要机械抽模型清单。
+- 优先读取本周 / 每日训练计划；当天真实上下文可以覆盖计划。
+- 每天可以围绕几个相关模型选题，但故事正文只讲一个主概念。
 - 立意方向包括：工作推进、技术成长、身体底盘、金钱欲望、关系沟通、情绪自控、轻创业、风险边界、自我认知、长期主义。
 - 用户指定写法时按指定写法；否则在莫言式、契诃夫式、莫泊桑式、欧亨利式之间轮换。
 - 写法必须体现叙事机制，而不是只写流派名称。

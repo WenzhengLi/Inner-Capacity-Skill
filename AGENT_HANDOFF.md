@@ -82,6 +82,7 @@ Related self-distillation direction:
 - Story mode must start with the actual story name as the top title, not the generic word `故事`.
 - Story mode has been extracted into `skills/story-thinking-trainer/SKILL.md`; use that file as the main contract when optimizing or running stories.
 - Story theme selection is now two-layered: first choose the life training direction, then choose the concrete model. Life directions include work execution, technical growth, body base, money/desire, relationship communication, emotional self-control, light entrepreneurship, risk boundary, self-knowledge, and long-termism.
+- Story mode should read `STORY_TRAINING_PLAN.md` when available. Use the weekly plan and daily module as the default agenda, but let the user's newest real context override it. Related model groups can guide selection, but each story should teach one primary concept.
 - Story mode rotates writing approaches in this order: 莫言式 -> 契诃夫式 -> 莫泊桑式 -> 欧亨利式 -> repeat.
 - Story mode should read the latest non-empty `写法流派` in `STORY_TRAINING_LOG.md` and choose the next one. If none exists, start with 莫言式.
 - If the user names a writing approach, use that approach instead of rotation for that run.

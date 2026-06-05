@@ -127,6 +127,8 @@ Self-check:
 
 Choose a story theme in two layers unless the user specifies a concept.
 
+Before choosing, read `STORY_TRAINING_PLAN.md` when available. Use its weekly plan and daily module as the default training agenda.
+
 Layer 1: choose the life training direction the user most needs right now. Do not pick from the model list mechanically.
 
 - work execution: daily main line, visible delivery, deadline, handoff, review
@@ -160,12 +162,14 @@ Layer 2: choose one concrete model that can train that direction:
 
 Selection rule:
 
-1. Prefer the user's newest real context over old abstract diagnosis.
-2. If the user recently answered homework, choose the next theme from their weak point in that answer.
-3. If the user is discussing code/work, prefer work execution, technical growth, risk boundary, or visible delivery.
-4. If the user is discussing body, spending, relationship, or mood, choose the matching life direction first, then the model.
-5. Avoid repeating the same life direction more than twice in a row unless the user explicitly asks.
-6. The story's point must be a life training point, not merely a clever explanation of a model.
+1. If `STORY_TRAINING_PLAN.md` has a plan for today, use today's module as the default.
+2. Prefer the user's newest real context over the default plan when the user is clearly focused on code, body, relationship, spending, or a current decision.
+3. If the user recently answered homework, choose the next theme from their weak point in that answer.
+4. If the user is discussing code/work, prefer work execution, technical growth, risk boundary, or visible delivery.
+5. If the user is discussing body, spending, relationship, or mood, choose the matching life direction first, then the model.
+6. Avoid repeating the same life direction more than twice in a row unless the user explicitly asks.
+7. The story's point must be a life training point, not merely a clever explanation of a model.
+8. A story may be selected from a related model group, but the story itself should reveal only one primary concept.
 
 ## Output Template
 
