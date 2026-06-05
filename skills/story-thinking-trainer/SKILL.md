@@ -25,8 +25,8 @@ Do not use `【继续】` as a story trigger unless the local context clearly me
 2. The top title must be the story name, not the generic word `故事`.
 3. Do not reveal the concept before the story.
 4. Use a concrete scene before abstraction.
-5. After the story, reveal the concept, explain the metaphor, apply it to the user, give open homework, and log the row.
-6. Application examples are capped at 3 total: usually 1-2 user examples plus at most 1 external example.
+5. After the story, reveal the concept, explain the metaphor, apply it gently, give open homework, and log the row.
+6. Application examples are capped at 3 total. Default to 1 direct user reminder plus 2 generalized or external examples. Avoid turning every story into a multi-point correction of the user.
 7. If the user says the answer is confusing, compress to one core sentence and one action.
 
 ## Style Selection
@@ -188,9 +188,9 @@ Selection rule:
 - {故事元素} = {现实含义}
 
 套到你身上：
-1. {用户真实经历或当前问题}
-2. {用户真实经历或当前问题}
-3. {可选外部例子}
+1. 善意提醒：{只展开一个与用户直接相关的点}
+2. 泛化场景：{同类人在工作 / 身体 / 金钱 / 关系中的类似情况}
+3. 外部或中性例子：{不直接指向用户的应用场景}
 
 开放作业：
 {没有固定答案的问题或小练习}
@@ -204,8 +204,9 @@ Before sending, check:
 2. Did the concept remain hidden until after the story?
 3. Did the story teach by structure, not by explanation pasted into the plot?
 4. Are application examples capped at 3?
-5. Is the life training direction clear, not just the abstract model?
-6. Is the homework open-ended and scorable?
+5. Does the user-facing application avoid over-correction? It should usually contain only one direct personal reminder.
+6. Is the life training direction clear, not just the abstract model?
+7. Is the homework open-ended and scorable?
 
 If any answer is no, rewrite before sending.
 

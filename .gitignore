@@ -1,0 +1,5 @@
+/user-space/
+/.user-space/
+/private/
+*.local.md
+state.local.json

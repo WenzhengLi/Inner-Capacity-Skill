@@ -1,0 +1,10 @@
+{
+  "stage": "onboarding",
+  "profile_completed": false,
+  "answered_count": 0,
+  "next_question": 1,
+  "assessment_completed": false,
+  "evaluation_completed": false,
+  "voice_mode": "温和陪伴",
+  "preferred_story_styles": []
+}

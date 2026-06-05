@@ -76,7 +76,7 @@ Related self-distillation direction:
 
 ## Current Interaction Rules
 
-- `【开始】` triggers the daily growth check-in.
+- `【开始】` is an intelligent entrypoint. If `user-space/state.json` does not exist, follow `ONBOARDING_PROTOCOL.md`: introduce “2026 款傻妞”, ask the initialization questions, then begin the 50-question distillation. If onboarding/evaluation is complete, it can enter daily growth check-in.
 - `【讲故事】` triggers one story-based thinking-model training session.
 - `【继续】` is no longer a story trigger; interpret it only in the current conversational context.
 - Story mode must start with the actual story name as the top title, not the generic word `故事`.
@@ -87,4 +87,5 @@ Related self-distillation direction:
 - Story mode should read the latest non-empty `写法流派` in `STORY_TRAINING_LOG.md` and choose the next one. If none exists, start with 莫言式.
 - If the user names a writing approach, use that approach instead of rotation for that run.
 - Each approach must be implemented through narrative mechanism, not by merely labeling the story. Use the Quality Gate in `story-thinking-trainer`.
+- Story application should be gentler by default: one direct personal reminder, plus two generalized/external examples. Avoid repeatedly giving the user four or five personal correction points after every story.
 - Each story log row records: time, story name, writing approach, concept, example count, and acceptance score. Existing older story rows can leave writing approach blank.
