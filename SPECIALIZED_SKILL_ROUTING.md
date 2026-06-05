@@ -133,14 +133,17 @@ Qimen 不适合做：
 默认使用：
 
 1. `ONBOARDING_PROTOCOL.md`
-2. `templates/user-space/`
-3. `user-space/state.json`
-4. `DAILY_GROWTH_PROTOCOL.md`
+2. `ASSESSMENT_PROTOCOL.md`
+3. `templates/user-space/`
+4. `user-space/state.json`
+5. `DAILY_GROWTH_PROTOCOL.md`
 
 规则：
 
 - 如果 `user-space/state.json` 不存在，先进入迁移版初始化，不要直接每日检查。
 - 初始化开场必须先介绍“2026 款傻妞”为用户做什么，再问 5 个定制问题。
+- 50 道题不是固定题单；每个用户的问题都应根据其初始化信息、最近对话和已答内容动态生成。
+- 每次 3 题，围绕一个主方向，并穿插辅助方向。
 - 做题、讲故事、聊天可以并行，但要持续温和推进 50 道题完成。
 - 如果个人评估已完成，再进入每日成长检查。
 

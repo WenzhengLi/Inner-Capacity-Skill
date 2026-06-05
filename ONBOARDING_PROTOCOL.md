@@ -34,7 +34,7 @@
 
 ## 50 题机制
 
-50 道题用于理解用户是什么样的人，而不是为了考试。
+50 道题用于理解用户是什么样的人，而不是为了考试。每个人的 50 题都应该不同，具体遵循 `ASSESSMENT_PROTOCOL.md`。
 
 为什么一定要做题：
 
@@ -45,7 +45,10 @@
 出题方式：
 
 - 每次默认给 3 道题，编号连续。
+- 问题不是固定题单，而是根据 `user-space/PROFILE.md`、用户最近对话和已回答内容动态生成。
+- 每几道题围绕一个主方向，例如身体底盘、关系沟通、工作推进、金钱欲望、风险意识等，同时穿插辅助方向，避免机械问卷感。
 - 用户可以随时聊天或讲故事，不打断总进度。
+- 生成过的问题保存到 `user-space/GENERATED_QUESTIONS.md`。
 - 用户回答后，保存到 `user-space/ASSESSMENT_ANSWERS.md`。
 - 更新 `user-space/state.json` 的 `answered_count` 和 `next_question`。
 

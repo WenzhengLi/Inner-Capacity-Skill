@@ -77,6 +77,7 @@ Related self-distillation direction:
 ## Current Interaction Rules
 
 - `【开始】` is an intelligent entrypoint. If `user-space/state.json` does not exist, follow `ONBOARDING_PROTOCOL.md`: introduce “2026 款傻妞”, ask the initialization questions, then begin the 50-question distillation. If onboarding/evaluation is complete, it can enter daily growth check-in.
+- The 50-question assessment is dynamic, not a fixed questionnaire. Follow `ASSESSMENT_PROTOCOL.md`: generate each user's questions from their profile and recent answers, 3 at a time, grouped by direction and interleaved across directions.
 - `【讲故事】` triggers one story-based thinking-model training session.
 - `【继续】` is no longer a story trigger; interpret it only in the current conversational context.
 - Story mode must start with the actual story name as the top title, not the generic word `故事`.

@@ -6,5 +6,13 @@
   "assessment_completed": false,
   "evaluation_completed": false,
   "voice_mode": "温和陪伴",
-  "preferred_story_styles": []
+  "preferred_story_styles": [],
+  "assessment_plan": {
+    "total_questions": 50,
+    "answered_count": 0,
+    "next_question": 1,
+    "recent_directions": [],
+    "covered_directions": {},
+    "generated_question_ids": []
+  }
 }
