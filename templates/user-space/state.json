@@ -1,5 +1,6 @@
 {
   "stage": "onboarding",
+  "assistant_name": "2026款傻妞",
   "profile_completed": false,
   "answered_count": 0,
   "next_question": 1,
@@ -7,12 +8,16 @@
   "evaluation_completed": false,
   "voice_mode": "温和陪伴",
   "preferred_story_styles": [],
+  "health_enabled": false,
+  "destiny_enabled": false,
+  "assessment_mode": "full_50",
   "assessment_plan": {
     "total_questions": 50,
     "answered_count": 0,
     "next_question": 1,
     "recent_directions": [],
     "covered_directions": {},
-    "generated_question_ids": []
+    "generated_question_ids": [],
+    "replaced_question_count": 0
   }
 }

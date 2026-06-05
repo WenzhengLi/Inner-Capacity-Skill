@@ -35,6 +35,8 @@ If the user names a style, use that style for this run.
 
 Otherwise rotate by reading the latest non-empty `写法流派` in `STORY_TRAINING_LOG.md`:
 
+Prefer `user-space/STORY_TRAINING_LOG.md` when it exists. Fall back to the root `STORY_TRAINING_LOG.md` template only when no personal log exists.
+
 `莫言式 -> 契诃夫式 -> 莫泊桑式 -> 欧亨利式 -> 莫言式`
 
 If no previous non-empty style exists, start with `莫言式`.
@@ -127,7 +129,7 @@ Self-check:
 
 Choose a story theme in two layers unless the user specifies a concept.
 
-Before choosing, read `STORY_TRAINING_PLAN.md` when available. Use its weekly plan and daily module as the default training agenda.
+Before choosing, read the training plan. Prefer `user-space/STORY_TRAINING_PLAN.md`; fall back to root `STORY_TRAINING_PLAN.md` when no personal plan exists. Use its weekly plan and daily module as the default training agenda.
 
 Layer 1: choose the life training direction the user most needs right now. Do not pick from the model list mechanically.
 
@@ -212,9 +214,11 @@ If any answer is no, rewrite before sending.
 
 ## Logging
 
-After telling a story, update `STORY_TRAINING_LOG.md`:
+Prefer writing to `user-space/STORY_TRAINING_LOG.md`. If it does not exist, create it from `templates/user-space/STORY_TRAINING_LOG.md`.
 
-`时间 | 故事名称 | 写法流派 | 概念 | 举例个数 | 验收分数`
+After telling a story, update the log with the current format:
+
+`时间 | 故事名称 | 写法流派 | 立意方向 | 概念 | 举例个数 | 验收分数`
 
 - Use today's date.
 - Use `待验收` until the user answers the homework.
