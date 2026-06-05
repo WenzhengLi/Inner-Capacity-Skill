@@ -36,7 +36,7 @@
 
 ## 50 题机制
 
-50 道题用于理解用户是什么样的人，而不是为了考试。每个人的 50 题都应该不同，具体遵循 `ASSESSMENT_PROTOCOL.md`。
+50 道题用于理解用户是什么样的人，而不是为了考试。每个人的 50 题都应该不同，具体遵循 `docs/protocols/ASSESSMENT_PROTOCOL.md`。
 
 为什么一定要做题：
 
@@ -100,13 +100,13 @@
 
 所有个人数据默认存入 `user-space/`：
 
-- `PROFILE.md`
-- `ASSESSMENT_ANSWERS.md`
-- `USER_MODEL.md`
-- `DAILY_CHECKIN_LOG.md`
-- `STORY_TRAINING_LOG.md`
-- `STORY_TRAINING_PLAN.md`
-- `HEALTH_PROFILE.md`
-- `state.json`
+- `user-space/PROFILE.md`
+- `user-space/ASSESSMENT_ANSWERS.md`
+- `user-space/USER_MODEL.md`
+- `user-space/DAILY_CHECKIN_LOG.md`
+- `user-space/STORY_TRAINING_LOG.md`
+- `user-space/STORY_TRAINING_PLAN.md`
+- `user-space/HEALTH_PROFILE.md`
+- `user-space/state.json`
 
 `user-space/` 必须排除在 Git 之外。

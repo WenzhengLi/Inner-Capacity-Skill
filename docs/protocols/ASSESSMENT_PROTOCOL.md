@@ -5,7 +5,7 @@
 ## 核心原则
 
 - 不使用固定 50 题照搬给所有人。
-- `ASSESSMENT_QUESTIONS.md` 只能作为问题模板库和灵感池，不是固定题单。
+- `docs/assessment/ASSESSMENT_QUESTIONS.md` 只能作为问题模板库和灵感池，不是固定题单。
 - 每个用户的题目应根据 `user-space/PROFILE.md`、最近对话、已回答内容和当前阶段生成。
 - 每次默认只给 3 道题，编号连续，便于用户按 `1~3` 回答。
 - 用户可以要求换题，但总题数仍然是 50。被换掉的问题不计入已回答数量，应记录到 `GENERATED_QUESTIONS.md` 的备注中。

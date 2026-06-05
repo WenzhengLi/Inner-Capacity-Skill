@@ -26,8 +26,8 @@ When analyzing this user, read these project files as needed:
 - `HEALTH_PROFILE.md`: body state and health constraints.
 - `USER_MODEL_DIAGNOSIS_DRAFT.md`: inner capacity diagnosis.
 - `DAILY_CHECKIN_LOG.md`: recent daily signals.
-- `PERSONA_SKILL_INDEX.md`: available external persona / metaphysical skills.
-- `SPECIALIZED_SKILL_ROUTING.md`: routing rules for health and destiny modules.
+- `docs/inventory/PERSONA_SKILL_INDEX.md`: available external persona / metaphysical skills.
+- `docs/protocols/SPECIALIZED_SKILL_ROUTING.md`: routing rules for health and destiny modules.
 
 When doing detailed Bazi / Qimen / Yinyuan / Partner work, refer to these external skills:
 

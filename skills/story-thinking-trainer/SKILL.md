@@ -15,7 +15,7 @@ Use this Skill when the user says:
 - `讲故事`
 - `讲故事，{写法流派}`
 - asks to score a story homework answer
-- asks to update `STORY_TRAINING_LOG.md`
+- asks to update `user-space/STORY_TRAINING_LOG.md`
 
 Do not use `【继续】` as a story trigger unless the local context clearly means continuing the current story task.
 
@@ -33,9 +33,9 @@ Do not use `【继续】` as a story trigger unless the local context clearly me
 
 If the user names a style, use that style for this run.
 
-Otherwise rotate by reading the latest non-empty `写法流派` in `STORY_TRAINING_LOG.md`:
+Otherwise rotate by reading the latest non-empty `写法流派` in `user-space/STORY_TRAINING_LOG.md`:
 
-Prefer `user-space/STORY_TRAINING_LOG.md` when it exists. Fall back to the root `STORY_TRAINING_LOG.md` template only when no personal log exists.
+Prefer `user-space/STORY_TRAINING_LOG.md` when it exists. If it is missing, create it from `templates/user-space/STORY_TRAINING_LOG.md`.
 
 `莫言式 -> 契诃夫式 -> 莫泊桑式 -> 欧亨利式 -> 莫言式`
 
@@ -129,7 +129,7 @@ Self-check:
 
 Choose a story theme in two layers unless the user specifies a concept.
 
-Before choosing, read the training plan. Prefer `user-space/STORY_TRAINING_PLAN.md`; fall back to root `STORY_TRAINING_PLAN.md` when no personal plan exists. Use its weekly plan and daily module as the default training agenda.
+Before choosing, read the training plan. Prefer `user-space/STORY_TRAINING_PLAN.md`; fall back to `docs/protocols/STORY_TRAINING_PLAN.md` when no personal plan exists. Use its weekly plan and daily module as the default training agenda.
 
 Layer 1: choose the life training direction the user most needs right now. Do not pick from the model list mechanically.
 
@@ -164,7 +164,7 @@ Layer 2: choose one concrete model that can train that direction:
 
 Selection rule:
 
-1. If `STORY_TRAINING_PLAN.md` has a plan for today, use today's module as the default.
+1. If `user-space/STORY_TRAINING_PLAN.md` or `docs/protocols/STORY_TRAINING_PLAN.md` has a plan for today, use today's module as the default.
 2. Prefer the user's newest real context over the default plan when the user is clearly focused on code, body, relationship, spending, or a current decision.
 3. If the user recently answered homework, choose the next theme from their weak point in that answer.
 4. If the user is discussing code/work, prefer work execution, technical growth, risk boundary, or visible delivery.

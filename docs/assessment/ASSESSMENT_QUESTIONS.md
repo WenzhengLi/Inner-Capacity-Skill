@@ -2,7 +2,7 @@
 
 本文件是动态 50 题的模板库和灵感池，不是固定题单。
 
-使用规则见 `ASSESSMENT_PROTOCOL.md`：
+使用规则见 `docs/protocols/ASSESSMENT_PROTOCOL.md`：
 
 - 每个人的 50 题都应该不同。
 - 每次生成 3 道题。

@@ -132,10 +132,10 @@ Qimen 不适合做：
 
 默认使用：
 
-1. `CHAT_ANALYSIS_PROTOCOL.md`
-2. `SIDE_TASK_PROTOCOL.md`
-3. `STORY_TRAINING_PLAN.md`
-4. `ASSESSMENT_PROTOCOL.md`
+1. `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`
+2. `docs/protocols/SIDE_TASK_PROTOCOL.md`
+3. `docs/protocols/STORY_TRAINING_PLAN.md`
+4. `docs/protocols/ASSESSMENT_PROTOCOL.md`
 
 规则：
 
@@ -149,7 +149,7 @@ Qimen 不适合做：
 
 默认使用：
 
-1. `SIDE_TASK_PROTOCOL.md`
+1. `docs/protocols/SIDE_TASK_PROTOCOL.md`
 2. `user-space/SIDE_TASKS.md`
 
 规则：
@@ -163,9 +163,9 @@ Qimen 不适合做：
 
 默认使用：
 
-1. `FUNCTION_CONSOLIDATION_PROTOCOL.md`
+1. `docs/protocols/FUNCTION_CONSOLIDATION_PROTOCOL.md`
 2. `README.md`
-3. `SPECIALIZED_SKILL_ROUTING.md`
+3. `docs/protocols/SPECIALIZED_SKILL_ROUTING.md`
 4. `templates/user-space/`
 5. 相关 Skill 或协议文件
 
@@ -180,11 +180,11 @@ Qimen 不适合做：
 
 默认使用：
 
-1. `ONBOARDING_PROTOCOL.md`
-2. `ASSESSMENT_PROTOCOL.md`
+1. `docs/protocols/ONBOARDING_PROTOCOL.md`
+2. `docs/protocols/ASSESSMENT_PROTOCOL.md`
 3. `templates/user-space/`
 4. `user-space/state.json`
-5. `DAILY_GROWTH_PROTOCOL.md`
+5. `docs/protocols/DAILY_GROWTH_PROTOCOL.md`
 
 规则：
 
@@ -202,9 +202,9 @@ Qimen 不适合做：
 默认使用：
 
 1. `skills/story-thinking-trainer/SKILL.md`
-2. `STORY_TRAINING_LOG.md`
-3. `STORY_TRAINING_PLAN.md`
-4. `USER_MODEL_DIAGNOSIS_DRAFT.md`
+2. `user-space/STORY_TRAINING_LOG.md`
+3. `docs/protocols/STORY_TRAINING_PLAN.md`
+4. `user-space/USER_MODEL_DIAGNOSIS_DRAFT.md`
 
 规则：
 

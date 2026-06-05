@@ -10,7 +10,7 @@ Inner Capacity Skill 是一个成长型思维模型 Skill。
 
 项目分为两层：
 
-- 项目内核：`skills/`、协议、模板和默认训练计划，可提交。
+- 项目内核：`skills/`、`docs/`、`templates/`、`references/`，可提交。
 - 个人数据：`user-space/`，默认被 `.gitignore` 排除。
 
 首次使用时，复制模板或让 Agent 自动创建：
@@ -18,6 +18,23 @@ Inner Capacity Skill 是一个成长型思维模型 Skill。
 ```text
 templates/user-space/ -> user-space/
 ```
+
+## 目录结构
+
+根目录只保留入口文件和主目录：
+
+| 路径 | 用途 |
+|---|---|
+| `README.md` | 给用户看的上手说明 |
+| `AGENT_HANDOFF.md` | 给后续 Agent 看的接手说明 |
+| `docs/core/` | 目标、设计决策、蒸馏方法、人格草案 |
+| `docs/protocols/` | 启动、评估、故事、健康命理、聊天分析、支线任务、功能沉淀等规则 |
+| `docs/assessment/` | 题库模板和评估问题素材 |
+| `docs/inventory/` | 外部 persona skills 清单和拉取状态 |
+| `skills/` | 可直接使用的专项 Skill |
+| `templates/user-space/` | 新用户个人空间模板 |
+| `references/` | 外部参考仓库和资料 |
+| `user-space/` | 本地私人数据，默认不提交 |
 
 ## 常用命令
 
@@ -59,7 +76,7 @@ templates/user-space/ -> user-space/
 
 因为只有拿到足够真实的样本，系统才知道您是什么样的人。后续讲故事、提建议、做训练计划，才更容易贴到您的心里，而不是泛泛讲道理。
 
-具体出题规则见 `ASSESSMENT_PROTOCOL.md`。
+具体出题规则见 `docs/protocols/ASSESSMENT_PROTOCOL.md`。
 
 也支持【轻量评估】：用 15 题先做初步建模。但 15 题只能得到粗略画像，完整 50 题才更准确。
 
@@ -119,15 +136,15 @@ templates/user-space/ -> user-space/
 
 系统支持把平时聊天里的想法分三类处理：
 
-- 聊天分析：先理解用户说了什么，再拆解哪里对、哪里可能想简单了、还能怎么延伸、能总结成什么模型、下一步怎么做。规则见 `CHAT_ANALYSIS_PROTOCOL.md`。
-- 支线任务：把值得试一试的小动作登记到 `user-space/SIDE_TASKS.md`，记录任务索引、描述、回答和验收方式。规则见 `SIDE_TASK_PROTOCOL.md`。
-- 功能沉淀：只有当某个能力可复用、可迁移、不依赖私人经历时，才写进公开协议、模板和 README。规则见 `FUNCTION_CONSOLIDATION_PROTOCOL.md`。
+- 聊天分析：先理解用户说了什么，再拆解哪里对、哪里可能想简单了、还能怎么延伸、能总结成什么模型、下一步怎么做。规则见 `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`。
+- 支线任务：把值得试一试的小动作登记到 `user-space/SIDE_TASKS.md`，记录任务索引、描述、回答和验收方式。规则见 `docs/protocols/SIDE_TASK_PROTOCOL.md`。
+- 功能沉淀：只有当某个能力可复用、可迁移、不依赖私人经历时，才写进公开协议、模板和 README。规则见 `docs/protocols/FUNCTION_CONSOLIDATION_PROTOCOL.md`。
 
 用户正在看的历史讲解、短视频、人物传记、地域财富材料和身体观察，默认先进入聊天分析。它们可以被拆成支线任务或故事训练素材，但不会自动变成固定公开功能。
 
 ## 故事训练
 
-故事训练按 `STORY_TRAINING_PLAN.md` 或个人目录下的 `user-space/STORY_TRAINING_PLAN.md` 执行。
+故事训练按 `docs/protocols/STORY_TRAINING_PLAN.md` 或个人目录下的 `user-space/STORY_TRAINING_PLAN.md` 执行。
 
 每次故事默认：
 

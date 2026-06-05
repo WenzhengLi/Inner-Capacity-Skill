@@ -8,20 +8,20 @@ The goal is to build a reusable growth-oriented persona/thinking-model Skill. It
 
 ## Read Order
 
-1. `GOAL.md`
+1. `docs/core/GOAL.md`
    - Understand the core intention.
    - The current worldview is "reconstructable shou-yang-sheng-yin", not a fixed doctrine.
    - Treat the yin/yang model as an initial working hypothesis that must be revised against user answers.
 
-2. `ASSESSMENT_QUESTIONS.md`
+2. `docs/assessment/ASSESSMENT_QUESTIONS.md`
    - Contains the first 50 assessment questions.
    - These questions are the initial data collection layer for evaluating the user's thinking model, internal capacity, desires, fears, decision patterns, and growth stage.
 
-3. `DISTILLATION_METHOD.md`
+3. `docs/core/DISTILLATION_METHOD.md`
    - Explains how Nuwa Skill-style distillation works.
    - Adapts that approach from distilling public personas to distilling the user themselves.
 
-4. `CHAT_ANALYSIS_PROTOCOL.md`, `SIDE_TASK_PROTOCOL.md`, `FUNCTION_CONSOLIDATION_PROTOCOL.md`
+4. `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`, `docs/protocols/SIDE_TASK_PROTOCOL.md`, `docs/protocols/FUNCTION_CONSOLIDATION_PROTOCOL.md`
    - Explain how to handle long reflective chat, optional side tasks, and reusable feature consolidation.
 
 ## Core Idea
@@ -79,21 +79,21 @@ Related self-distillation direction:
 
 ## Current Interaction Rules
 
-- `【开始】` is an intelligent entrypoint. If `user-space/state.json` does not exist, follow `ONBOARDING_PROTOCOL.md`: introduce “2026 款傻妞”, ask the initialization questions, then begin the 50-question distillation. If onboarding/evaluation is complete, it can enter daily growth check-in.
-- The 50-question assessment is dynamic, not a fixed questionnaire. Follow `ASSESSMENT_PROTOCOL.md`: generate each user's questions from their profile and recent answers, 3 at a time, grouped by direction and interleaved across directions.
+- `【开始】` is an intelligent entrypoint. If `user-space/state.json` does not exist, follow `docs/protocols/ONBOARDING_PROTOCOL.md`: introduce “2026 款傻妞”, ask the initialization questions, then begin the 50-question distillation. If onboarding/evaluation is complete, it can enter daily growth check-in.
+- The 50-question assessment is dynamic, not a fixed questionnaire. Follow `docs/protocols/ASSESSMENT_PROTOCOL.md`: generate each user's questions from their profile and recent answers, 3 at a time, grouped by direction and interleaved across directions.
 - Users may replace questions, but the full assessment still requires 50 answered questions. A 15-question lightweight mode is allowed only for rough initial modeling.
 - Default assistant name is “2026款傻妞”; users may rename it via `assistant_name`.
-- Long reflective user outputs should enter chat analysis mode. Follow `CHAT_ANALYSIS_PROTOCOL.md`: understand first, then analyze what is right, what may be simplified, how to extend it, what model it suggests, and what small action is acceptable.
-- If chat produces concrete actions, use `SIDE_TASK_PROTOCOL.md` and ask whether to register them as side tasks in `user-space/SIDE_TASKS.md`.
-- If the user says “功能沉淀” or asks to make the project more portable, follow `FUNCTION_CONSOLIDATION_PROTOCOL.md`. Only reusable, portable capabilities belong in public project files; personal thoughts and records belong in `user-space/`.
+- Long reflective user outputs should enter chat analysis mode. Follow `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`: understand first, then analyze what is right, what may be simplified, how to extend it, what model it suggests, and what small action is acceptable.
+- If chat produces concrete actions, use `docs/protocols/SIDE_TASK_PROTOCOL.md` and ask whether to register them as side tasks in `user-space/SIDE_TASKS.md`.
+- If the user says “功能沉淀” or asks to make the project more portable, follow `docs/protocols/FUNCTION_CONSOLIDATION_PROTOCOL.md`. Only reusable, portable capabilities belong in public project files; personal thoughts and records belong in `user-space/`.
 - `【讲故事】` triggers one story-based thinking-model training session.
 - `【继续】` is no longer a story trigger; interpret it only in the current conversational context.
 - Story mode must start with the actual story name as the top title, not the generic word `故事`.
 - Story mode has been extracted into `skills/story-thinking-trainer/SKILL.md`; use that file as the main contract when optimizing or running stories.
 - Story theme selection is now two-layered: first choose the life training direction, then choose the concrete model. Life directions include work execution, technical growth, body base, money/desire, relationship communication, emotional self-control, light entrepreneurship, risk boundary, self-knowledge, and long-termism.
-- Story mode should read `STORY_TRAINING_PLAN.md` when available. Use the weekly plan and daily module as the default agenda, but let the user's newest real context override it. Related model groups can guide selection, but each story should teach one primary concept.
+- Story mode should read `docs/protocols/STORY_TRAINING_PLAN.md` when no personal plan exists. Use the weekly plan and daily module as the default agenda, but let the user's newest real context override it. Related model groups can guide selection, but each story should teach one primary concept.
 - Story mode rotates writing approaches in this order: 莫言式 -> 契诃夫式 -> 莫泊桑式 -> 欧亨利式 -> repeat.
-- Story mode should read the latest non-empty `写法流派` in `STORY_TRAINING_LOG.md` and choose the next one. If none exists, start with 莫言式.
+- Story mode should read the latest non-empty `写法流派` in `user-space/STORY_TRAINING_LOG.md`; if missing, create it from `templates/user-space/STORY_TRAINING_LOG.md`.
 - If the user names a writing approach, use that approach instead of rotation for that run.
 - Each approach must be implemented through narrative mechanism, not by merely labeling the story. Use the Quality Gate in `story-thinking-trainer`.
 - Story application should be gentler by default: one direct personal reminder, plus two generalized/external examples. Avoid repeatedly giving the user four or five personal correction points after every story.
