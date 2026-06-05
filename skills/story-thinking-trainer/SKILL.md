@@ -123,11 +123,28 @@ Self-check:
 
 - If the last line does not make the reader reinterpret at least one earlier detail, rewrite it.
 
-## Concept Selection
+## Theme Selection
 
-Choose from the user's current training gaps unless the user specifies a concept:
+Choose a story theme in two layers unless the user specifies a concept.
+
+Layer 1: choose the life training direction the user most needs right now. Do not pick from the model list mechanically.
+
+- work execution: daily main line, visible delivery, deadline, handoff, review
+- technical growth: .NET, IoT flow, AI usage, architecture judgment, testing
+- body base: sleep, food, smoking, exercise, energy, recovery, environment
+- money and desire: consumption, reward, vanity, cash flow, delayed gratification
+- relationship communication: emotional translation, boundaries, repair, respect
+- emotional self-control: anger, impulse, avoidance, shame, guilt, inner steadiness
+- light entrepreneurship: small老板, workflow pain, low-cost validation, no all-in
+- risk boundary: irreversible loss, leverage, quitting, health cost, rollback
+- self-knowledge: identity, ability circle, true strengths, false labels
+- long-termism: compounding, patience, stable rules, delayed return
+
+Layer 2: choose one concrete model that can train that direction:
 
 - stopping rule / decision closure
+- acceptance criteria / visible delivery
+- task slicing / smallest useful delivery
 - capability circle / cognitive honesty
 - bottleneck thinking
 - double-loop review
@@ -141,6 +158,15 @@ Choose from the user's current training gaps unless the user specifies a concept
 - health as base capacity
 - relationship boundary and emotional translation
 
+Selection rule:
+
+1. Prefer the user's newest real context over old abstract diagnosis.
+2. If the user recently answered homework, choose the next theme from their weak point in that answer.
+3. If the user is discussing code/work, prefer work execution, technical growth, risk boundary, or visible delivery.
+4. If the user is discussing body, spending, relationship, or mood, choose the matching life direction first, then the model.
+5. Avoid repeating the same life direction more than twice in a row unless the user explicitly asks.
+6. The story's point must be a life training point, not merely a clever explanation of a model.
+
 ## Output Template
 
 ```text
@@ -151,6 +177,8 @@ Choose from the user's current training gaps unless the user specifies a concept
 {story body}
 
 点破概念：{概念名}
+
+立意方向：{工作推进 / 技术成长 / 身体底盘 / 金钱欲望 / 关系沟通 / 情绪自控 / 轻创业 / 风险边界 / 自我认知 / 长期主义}
 
 隐喻对应：
 - {故事元素} = {现实含义}
@@ -172,7 +200,8 @@ Before sending, check:
 2. Did the concept remain hidden until after the story?
 3. Did the story teach by structure, not by explanation pasted into the plot?
 4. Are application examples capped at 3?
-5. Is the homework open-ended and scorable?
+5. Is the life training direction clear, not just the abstract model?
+6. Is the homework open-ended and scorable?
 
 If any answer is no, rewrite before sending.
 
