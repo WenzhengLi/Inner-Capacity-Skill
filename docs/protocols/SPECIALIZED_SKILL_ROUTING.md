@@ -150,13 +150,15 @@ Qimen 不适合做：
 默认使用：
 
 1. `docs/protocols/SIDE_TASK_PROTOCOL.md`
-2. `user-space/SIDE_TASKS.md`
+2. `user-space/side-tasks/INDEX.md`
+3. `user-space/side-tasks/NOT_STARTED.md`
+4. `user-space/side-tasks/tasks/`
 
 规则：
 
 - 不要一听到“任务”就机械登记，先判断上下文是否真的有行动项。
 - 先复述任务理解，再问是否登记。
-- 登记时写清任务索引、描述、下一步、验收方式、回答 / 产出位置。
+- 登记时写清任务索引、描述、下一步、验收方式和任务文件路径。
 - 默认一次最多登记 3 个任务，避免支线吞掉主线。
 
 ### 当用户说【功能沉淀】/【沉淀模式】/【做成可迁移】

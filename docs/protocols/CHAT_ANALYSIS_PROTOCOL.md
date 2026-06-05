@@ -49,7 +49,9 @@
 
 如果拆成任务，再写入：
 
-- `user-space/SIDE_TASKS.md`
+- `user-space/side-tasks/INDEX.md`
+- `user-space/side-tasks/NOT_STARTED.md`
+- `user-space/side-tasks/tasks/`
 
 ## 边界
 

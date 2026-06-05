@@ -137,7 +137,7 @@ templates/user-space/ -> user-space/
 系统支持把平时聊天里的想法分三类处理：
 
 - 聊天分析：先理解用户说了什么，再拆解哪里对、哪里可能想简单了、还能怎么延伸、能总结成什么模型、下一步怎么做。规则见 `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`。
-- 支线任务：把值得试一试的小动作登记到 `user-space/SIDE_TASKS.md`，记录任务索引、描述、回答和验收方式。规则见 `docs/protocols/SIDE_TASK_PROTOCOL.md`。
+- 支线任务：把值得试一试的小动作登记到 `user-space/side-tasks/INDEX.md`；未开始任务放在 `user-space/side-tasks/NOT_STARTED.md`，开始后每个任务在 `user-space/side-tasks/tasks/` 下有自己的文件。规则见 `docs/protocols/SIDE_TASK_PROTOCOL.md`。
 - 功能沉淀：只有当某个能力可复用、可迁移、不依赖私人经历时，才写进公开协议、模板和 README。规则见 `docs/protocols/FUNCTION_CONSOLIDATION_PROTOCOL.md`。
 
 用户正在看的历史讲解、短视频、人物传记、地域财富材料和身体观察，默认先进入聊天分析。它们可以被拆成支线任务或故事训练素材，但不会自动变成固定公开功能。

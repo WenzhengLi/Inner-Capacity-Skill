@@ -20,7 +20,7 @@
 1. 先复述理解：这件事可能是什么任务。
 2. 问用户是否要登记为支线任务。
 3. 如果用户确认，拆成任务标题、任务描述、下一步、验收方式。
-4. 写入 `user-space/SIDE_TASKS.md`。
+4. 写入支线任务索引和对应任务文件。
 5. 如果任务来自聊天分析，把来源写为“聊天分析”。
 6. 用户回答后，必须把用户回答、傻妞批改、阶段评分和下一步训练题写回任务详情。
 
@@ -65,6 +65,36 @@
 
 批改要直接，但不要为了尖锐而尖锐。优先抓最关键的 1-2 个点。
 
+## 文件结构
+
+支线任务必须使用专属文件夹，不把所有任务正文塞进一个文件。
+
+推荐结构：
+
+```text
+user-space/side-tasks/
+  INDEX.md
+  NOT_STARTED.md
+  tasks/
+    ST-YYYYMMDD-001-title.md
+```
+
+规则：
+
+- `INDEX.md` 只做索引：记录任务 ID、标题、状态、下一步、验收方式和任务文件路径。
+- `NOT_STARTED.md` 只记录未开始任务。未开始任务不需要单独文件，路径指向 `NOT_STARTED.md` 的对应小节。
+- `tasks/` 存放已经开始、进行中、暂停、完成的任务文件。只要任务从“待开始”进入“进行中 / 完成 / 暂停”，就必须创建自己的 `md` 文件。
+- 每个任务一个文件，不同任务的回答、批改、复盘训练题不要混在一起。
+- 如果发现旧版单文件索引，把它当迁移说明，不再往里面写任务正文。
+
+任务文件命名建议：
+
+```text
+ST-YYYYMMDD-001-short-title.md
+```
+
+文件名用任务 ID 开头，后面接 2-6 个英文或拼音短词，避免中文路径兼容问题。
+
 ## 复盘训练
 
 支线任务支持主动出题。用户可以说：
@@ -92,11 +122,15 @@
 
 模板见：
 
-- `templates/user-space/SIDE_TASKS.md`
+- `templates/user-space/side-tasks/INDEX.md`
+- `templates/user-space/side-tasks/NOT_STARTED.md`
+- `templates/user-space/side-tasks/tasks/`
 
 个人执行记录放在：
 
-- `user-space/SIDE_TASKS.md`
+- `user-space/side-tasks/INDEX.md`
+- `user-space/side-tasks/NOT_STARTED.md`
+- `user-space/side-tasks/tasks/`
 
 ## 输出格式
 

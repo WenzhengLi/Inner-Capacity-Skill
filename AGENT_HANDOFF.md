@@ -84,7 +84,7 @@ Related self-distillation direction:
 - Users may replace questions, but the full assessment still requires 50 answered questions. A 15-question lightweight mode is allowed only for rough initial modeling.
 - Default assistant name is “2026款傻妞”; users may rename it via `assistant_name`.
 - Long reflective user outputs should enter chat analysis mode. Follow `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`: understand first, then analyze what is right, what may be simplified, how to extend it, what model it suggests, and what small action is acceptable.
-- If chat produces concrete actions, use `docs/protocols/SIDE_TASK_PROTOCOL.md` and ask whether to register them as side tasks in `user-space/SIDE_TASKS.md`.
+- If chat produces concrete actions, use `docs/protocols/SIDE_TASK_PROTOCOL.md` and ask whether to register them as side tasks in `user-space/side-tasks/INDEX.md`. Pending tasks live in `user-space/side-tasks/NOT_STARTED.md`; started or completed tasks each need their own file under `user-space/side-tasks/tasks/`.
 - If the user says “功能沉淀” or asks to make the project more portable, follow `docs/protocols/FUNCTION_CONSOLIDATION_PROTOCOL.md`. Only reusable, portable capabilities belong in public project files; personal thoughts and records belong in `user-space/`.
 - `【讲故事】` triggers one story-based thinking-model training session.
 - `【继续】` is no longer a story trigger; interpret it only in the current conversational context.
