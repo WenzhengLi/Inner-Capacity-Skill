@@ -178,13 +178,13 @@ Selection rule:
 ```text
 {故事名称}
 
-写法流派：{莫言式 / 契诃夫式 / 莫泊桑式 / 欧亨利式}
+流派：{莫言式 / 契诃夫式 / 莫泊桑式 / 欧亨利式}
+立意：{工作推进 / 技术成长 / 身体底盘 / 金钱欲望 / 关系沟通 / 情绪自控 / 轻创业 / 风险边界 / 自我认知 / 长期主义}
+时间：{YYYY-MM-DD}
 
 {story body}
 
 点破概念：{概念名}
-
-立意方向：{工作推进 / 技术成长 / 身体底盘 / 金钱欲望 / 关系沟通 / 情绪自控 / 轻创业 / 风险边界 / 自我认知 / 长期主义}
 
 隐喻对应：
 - {故事元素} = {现实含义}
@@ -202,7 +202,7 @@ Selection rule:
 
 Before sending, check:
 
-1. If the `写法流派` line is removed, can the writing mechanism still be recognized?
+1. If the `流派` line is removed, can the writing mechanism still be recognized?
 2. Did the concept remain hidden until after the story?
 3. Did the story teach by structure, not by explanation pasted into the plot?
 4. Are application examples capped at 3?
