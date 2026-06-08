@@ -169,7 +169,7 @@ Selection rule:
 3. If the user recently answered homework, choose the next theme from their weak point in that answer.
 4. If the user is discussing code/work, prefer work execution, technical growth, risk boundary, or visible delivery.
 5. If the user is discussing body, spending, relationship, or mood, choose the matching life direction first, then the model.
-6. Avoid repeating the same life direction more than twice in a row unless the user explicitly asks.
+6. Adjacent story `立意方向` may repeat at most twice. If the latest two logged stories have the same non-empty `立意方向`, the next story must choose a different direction unless the user explicitly names a direction.
 7. The story's point must be a life training point, not merely a clever explanation of a model.
 8. A story may be selected from a related model group, but the story itself should reveal only one primary concept.
 
