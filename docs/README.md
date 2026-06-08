@@ -17,6 +17,7 @@
 
 - `docs/protocols/ONBOARDING_PROTOCOL.md`
 - `docs/protocols/ASSESSMENT_PROTOCOL.md`
+- `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md`
 - `docs/protocols/DAILY_GROWTH_PROTOCOL.md`
 - `docs/protocols/STORY_TRAINING_PLAN.md`
 - `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`
