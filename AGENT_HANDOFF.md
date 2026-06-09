@@ -14,6 +14,11 @@ The goal is to build a reusable growth-oriented persona/thinking-model Skill. It
    - Do not update the sync timestamp on every check; update it only after the over-24-hour sync flow produces a result.
    - If remote updates touch files that also have local changes or local intent conflicts, stop and ask the user to choose before merging.
 
+0.5. `skills/agent-router/SKILL.md` 和 `docs/protocols/AGENT_ROUTER_PROTOCOL.md`
+   - 每次用户消息到达后，先按 Router Skill 判断任务类型，再读取对应 Skill 和协议文件。
+   - Router 是所有指令的强制入口，不得跳过。
+   - 中高风险任务（修改 Skill/协议、写入 user-space、公开提交、删除文件、生成用户专属 Skill、健康/命理/财务/法律/重大关系判断）必须先生成任务单。
+
 1. `docs/core/GOAL.md`
    - Understand the core intention.
    - The current worldview is "reconstructable shou-yang-sheng-yin", not a fixed doctrine.
@@ -28,8 +33,8 @@ The goal is to build a reusable growth-oriented persona/thinking-model Skill. It
    - Adapts that approach from distilling public personas to distilling the user themselves.
 
 4. `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md`
-   - Defines the closed loop from 50 answered questions to user model evaluation, external model recommendation, and a private user Skill.
-   - If `user-space/skills/inner-capacity-personal/SKILL.md` cannot be used, diagnose whether the assessment is incomplete, evaluation is missing, or Skill generation is missing.
+   - Defines the closed loop from 50 answered questions to user model evaluation, analysis/calibration Skill, and versioned dialogue Skill.
+   - If the analysis Skill exists but no conversation Skill exists, generate a new versioned dialogue Skill without overwriting the analysis Skill.
 
 5. `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`, `docs/protocols/SIDE_TASK_PROTOCOL.md`, `docs/protocols/FUNCTION_CONSOLIDATION_PROTOCOL.md`
    - Explain how to handle long reflective chat, optional side tasks, and reusable feature consolidation.
@@ -90,8 +95,8 @@ Related self-distillation direction:
 ## Current Interaction Rules
 
 - Before any instruction, follow `docs/protocols/STARTUP_SYNC_PROTOCOL.md`: compare current time with `user-space/SYNC_STATE.json.last_pull_at`; check every time, but update the timestamp only after the over-24-hour sync flow finishes; if remote updates conflict with local files or local intent, list updates, list conflict files, and ask the user to choose.
-- For main conversation, first check `user-space/state.json` and `user-space/skills/inner-capacity-personal/SKILL.md`. If `stage=personal_skill_ready` and the Skill file exists, read it as the default user-specific router before applying specialized protocols.
-- If the user-specific Skill cannot be used, follow `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md`: incomplete questions mean continue the 50-question assessment; completed questions without evaluation mean generate the user model; evaluation without Skill means generate the private Skill.
+- For main conversation, first check `user-space/state.json`. If `stage=personal_skill_ready`, read `analysis_skill_path` as the analysis/calibration Skill, then read `conversation_skill_path` as the executable dialogue Skill before applying specialized protocols. If these newer fields are missing, fall back to `user_skill_path` and note that the state schema is old.
+- If the user-specific Skill cannot be used, follow `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md`: incomplete questions mean continue the 50-question assessment; completed questions without evaluation mean generate the user model; evaluation with only an analysis/calibration Skill means generate a new versioned dialogue Skill, without overwriting the analysis Skill.
 - `查看主线进度`, `查看 Skill 进度`, `检查 Skill 状态`, `检查我的模型状态`, and `我现在到哪一步了` are progress-query commands. Read `user-space/state.json`, verify the private Skill file if needed, then report assessment, evaluation, model recommendation, private Skill generation, current stage, and next step.
 - `【开始】` is an intelligent entrypoint. If `user-space/state.json` does not exist, follow `docs/protocols/ONBOARDING_PROTOCOL.md`: introduce “2026 款傻妞”, ask the initialization questions, then begin the 50-question distillation. If onboarding/evaluation/personal Skill generation is complete, it can enter daily growth check-in.
 - The 50-question assessment is dynamic, not a fixed questionnaire. Follow `docs/protocols/ASSESSMENT_PROTOCOL.md`: generate each user's questions from their profile and recent answers, 3 at a time, grouped by direction and interleaved across directions.

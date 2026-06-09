@@ -28,10 +28,10 @@ templates/user-space/ -> user-space/
 | `README.md` | 给用户看的上手说明 |
 | `AGENT_HANDOFF.md` | 给后续 Agent 看的接手说明 |
 | `docs/core/` | 目标、设计决策、蒸馏方法、人格草案 |
-| `docs/protocols/` | 启动、评估、故事、健康命理、聊天分析、支线任务、功能沉淀等规则 |
+| `docs/protocols/` | 启动、评估、故事、健康命理、聊天分析、支线任务、功能沉淀等规则。所有指令先经过 `skills/agent-router/SKILL.md` 和 `AGENT_ROUTER_PROTOCOL.md` 路由检查 |
 | `docs/assessment/` | 题库模板和评估问题素材 |
 | `docs/inventory/` | 外部 persona skills 清单和拉取状态 |
-| `skills/` | 可直接使用的专项 Skill |
+| `skills/` | 可直接使用的专项 Skill（含 `agent-router` 总入口） |
 | `templates/user-space/` | 新用户个人空间模板 |
 | `references/` | 外部参考仓库和资料 |
 | `user-space/` | 本地私人数据，默认不提交 |
@@ -46,7 +46,7 @@ templates/user-space/ -> user-space/
 | 换一题 | 当前题不合适时更换；总题数仍为 50 |
 | 轻量评估 | 使用 15 题做初步建模，准确度低于完整 50 题 |
 | 评估我 | 基于 50 题和沟通记录生成 `user-space/USER_MODEL.md` |
-| 生成我的 Skill | 基于 50 题、用户模型和外部模型索引生成 `user-space/skills/inner-capacity-personal/SKILL.md` |
+| 生成我的 Skill | 基于 50 题、用户模型和外部模型索引生成版本化对话 Skill，如 `user-space/skills/inner-capacity-dialogue-v0.1.0/SKILL.md` |
 | 检查 Skill 状态 | 检查是题没答完、模型没分析，还是用户专属 Skill 没生成 |
 | 查看主线进度 / 查看 Skill 进度 | 查看 50 题、用户模型分析、外部模型推荐和用户专属 Skill 的当前进度 |
 | 讲故事 | 根据训练计划讲一个故事，训练一个主概念 |
@@ -84,24 +84,33 @@ templates/user-space/ -> user-space/
 
 ## 用户专属 Skill
 
-50 题完成后，系统不应只停在“分析用户”。它还应把分析结果转成用户自己的私人 Skill：
+50 题完成后，系统不应只停在“分析用户”。它应拆成两层：
+
+- 分析 / 校准 Skill：记录当前对用户理解到什么程度，随着对话、作业和行动持续更新，并维护 0%-100% 的校准分数。
+- 对话 / 执行 Skill：在某个校准分数上生成的版本化 Skill，负责后续对话怎么听、怎么判断、怎么回应、怎么训练、怎么落动作。
 
 ```text
-答题 -> 生成用户模型 -> 推荐外部模型组合 -> 生成用户专属 Skill -> 后续对话优先读取
+答题 -> 生成用户模型 -> 生成分析/校准 Skill -> 生成版本化对话 Skill -> 后续对话先读校准层再读对话层
 ```
 
-用户专属 Skill 默认保存在：
+分析 / 校准 Skill 默认保存在：
 
 ```text
 user-space/skills/inner-capacity-personal/SKILL.md
+```
+
+对话 / 执行 Skill 默认按版本保存，例如：
+
+```text
+user-space/skills/inner-capacity-dialogue-v0.1.0/SKILL.md
 ```
 
 状态由 `user-space/state.json` 判断：
 
 - 题没答完：继续每次 3 题。
 - 题答完但没分析：生成 `user-space/USER_MODEL.md` 或诊断草案。
-- 已分析但没生成 Skill：生成用户专属 Skill。
-- Skill 已生成：后续对话优先读取它，再按故事、健康、命理、支线任务等专项协议分流。
+- 已分析但没生成对话 Skill：新建版本化对话 Skill，不覆盖分析 / 校准 Skill。
+- 对话 Skill 已生成：后续对话先读取分析 / 校准 Skill，再读取对话 / 执行 Skill，再按故事、健康、命理、支线任务等专项协议分流。
 
 具体规则见 `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md`。
 
@@ -115,7 +124,7 @@ user-space/skills/inner-capacity-personal/SKILL.md
 我现在到哪一步了
 ```
 
-这些指令会读取 `user-space/state.json` 和用户专属 Skill 文件，输出当前阶段、50 题进度、用户模型分析状态、外部模型推荐状态、用户专属 Skill 是否已生成，以及下一步建议。
+这些指令会读取 `user-space/state.json`、分析 / 校准 Skill 和对话 / 执行 Skill，输出当前阶段、50 题进度、用户模型分析状态、校准分数、对话 Skill 版本，以及下一步建议。
 
 ## 启动前同步
 

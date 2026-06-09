@@ -1,14 +1,16 @@
 # 专项 Skill 切换路由
 
-更新时间：2026-06-05
+更新时间：2026-06-09
+
+> **本文不再作为总入口。** 总入口以 `docs/protocols/AGENT_ROUTER_PROTOCOL.md` 为准。本文仅作为健康、命理、关系、人生方向等专项路由的参考文档。
 
 用途：记录健康、命理、关系、人生方向等专项分析时，应切换或参考哪些现有 Skill，以及哪些方向需要单独重构。本文档用于后续写入正式 `SKILL.md`。
 
 ## 总体原则
 
 - 现有 Skill 可以作为“分析视角”和“表达方式”，不能直接替代 Inner Capacity Skill 的用户长期记忆。
-- `user-space/skills/inner-capacity-personal/SKILL.md` 是用户 50 题完成后的私人主 Skill；当 `user-space/state.json.stage=personal_skill_ready` 且文件存在时，普通成长对话应优先读取它，再进入专项协议。
-- 如果私人主 Skill 切换不到，先按 `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md` 判断是题没答完、用户模型没分析，还是 Skill 没生成。
+- `user-space/skills/inner-capacity-personal/SKILL.md` 是用户 50 题完成后的分析 / 校准 Skill；当 `user-space/state.json.stage=personal_skill_ready` 时，普通成长对话应先读取 `analysis_skill_path`，再读取 `conversation_skill_path` 指向的版本化对话 / 执行 Skill，然后进入专项协议。
+- 如果对话 / 执行 Skill 切换不到，先按 `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md` 判断是题没答完、用户模型没分析、只有分析 / 校准 Skill，还是对话 Skill 没生成。
 - 健康和命理都必须服务于用户成长、身体维护和行动闭环，不替用户做重大决定。
 - 健康方向不做诊断、不改药、不开方，只做记录、整理、风险提醒和给医生 / 中医师复盘。
 - 命理方向只作为文化视角、象征叙事和人生复盘，不做宿命判断。
@@ -136,7 +138,8 @@ Qimen 不适合做：
 
 1. `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md`
 2. `user-space/state.json`
-3. `user-space/skills/inner-capacity-personal/SKILL.md`
+3. `analysis_skill_path` 指向的分析 / 校准 Skill
+4. `conversation_skill_path` 指向的对话 / 执行 Skill
 4. `user-space/USER_MODEL.md` 或 `user-space/USER_MODEL_DIAGNOSIS_DRAFT.md`
 
 规则：
@@ -149,11 +152,12 @@ Qimen 不适合做：
 
 默认使用：
 
-1. `user-space/skills/inner-capacity-personal/SKILL.md`（如果已生成）
-2. `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`
-3. `docs/protocols/SIDE_TASK_PROTOCOL.md`
-4. `docs/protocols/STORY_TRAINING_PLAN.md`
-5. `docs/protocols/ASSESSMENT_PROTOCOL.md`
+1. `analysis_skill_path` 指向的分析 / 校准 Skill（如果已生成）
+2. `conversation_skill_path` 指向的对话 / 执行 Skill（如果已生成）
+3. `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`
+4. `docs/protocols/SIDE_TASK_PROTOCOL.md`
+5. `docs/protocols/STORY_TRAINING_PLAN.md`
+6. `docs/protocols/ASSESSMENT_PROTOCOL.md`
 
 规则：
 
@@ -210,7 +214,7 @@ Qimen 不适合做：
 规则：
 
 - 如果 `user-space/state.json` 不存在，先进入迁移版初始化，不要直接每日检查。
-- 如果 `state.stage=personal_skill_ready` 且 `user_skill_path` 存在，先读取用户专属 Skill，再进入每日成长检查。
+- 如果 `state.stage=personal_skill_ready` 且 `conversation_skill_path` 存在，先读取分析 / 校准 Skill 和对话 / 执行 Skill，再进入每日成长检查。
 - 如果 50 题已答完但 `user_skill_generated=false`，先生成用户专属 Skill，不要继续当作未完成评估。
 - 初始化开场必须先介绍“2026 款傻妞”为用户做什么，再问 5 个定制问题。
 - 默认名称为“2026款傻妞”，可按用户需求改名，保存到 `assistant_name`。

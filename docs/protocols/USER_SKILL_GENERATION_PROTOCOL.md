@@ -13,7 +13,14 @@
 -> 后续对话优先读取用户 Skill
 ```
 
-用户专属 Skill 不是重新训练模型，而是把用户画像、当前思维模型、推荐扩展模型、沟通边界和路由规则写成一个私人 `SKILL.md`，供后续 Agent 对话时优先读取。
+用户专属 Skill 不应只有一个文件。
+
+它分成两条线：
+
+- **分析 / 校准 Skill**：记录当前对用户理解到了多少，允许随着每次对话、回答、作业和真实行动持续修正，并维护 `0% -> 100%` 的校准分数。
+- **对话 / 执行 Skill**：在某个校准分数上生成出来的版本化对话 Skill，负责后续 Agent 怎么听、怎么判断、怎么回应、怎么训练、怎么落动作。
+
+分析 Skill 是活的校准层；对话 Skill 是版本化执行层。达到 100% 校准时，不覆盖旧对话 Skill，而是生成下一版对话 Skill。
 
 ## 文件位置
 
@@ -30,7 +37,8 @@
 - `user-space/ASSESSMENT_ANSWERS.md` 或 `user-space/legacy/ASSESSMENT_QUESTIONS_WITH_PERSONAL_ANSWERS.md`
 - `user-space/USER_MODEL.md`
 - `user-space/USER_MODEL_DIAGNOSIS_DRAFT.md`
-- `user-space/skills/inner-capacity-personal/SKILL.md`
+- `user-space/skills/inner-capacity-personal/SKILL.md`（分析 / 校准 Skill）
+- `user-space/skills/inner-capacity-dialogue-v*/SKILL.md`（对话 / 执行 Skill，版本化）
 
 模板：
 
@@ -49,7 +57,14 @@
   "evaluation_completed": true,
   "model_recommendation_completed": true,
   "user_skill_generated": true,
-  "user_skill_path": "user-space/skills/inner-capacity-personal/SKILL.md"
+  "user_skill_path": "user-space/skills/inner-capacity-dialogue-v0.1.0/SKILL.md",
+  "analysis_skill_path": "user-space/skills/inner-capacity-personal/SKILL.md",
+  "analysis_skill_role": "calibration",
+  "analysis_calibration_score": 5,
+  "analysis_calibration_scale": "0-100",
+  "conversation_skill_path": "user-space/skills/inner-capacity-dialogue-v0.1.0/SKILL.md",
+  "conversation_skill_role": "dialogue",
+  "conversation_skill_version": "0.1.0"
 }
 ```
 
@@ -78,13 +93,16 @@
    - 说明题答完了，但没有进行模型分析。
    - 读取答案并生成 `user-space/USER_MODEL.md` 或诊断草案。
 4. 如果 `evaluation_completed=true` 但 `user_skill_generated=false`：
-   - 说明分析完成了，但没有生成用户专属 Skill。
-   - 根据用户模型和本地外部模型索引生成私人 Skill。
+   - 说明分析完成了，但没有生成用户专属对话 Skill。
+   - 根据用户模型、分析 / 校准 Skill 和本地外部模型索引生成版本化对话 Skill。
 5. 如果 `user_skill_generated=true` 但文件不存在：
    - 状态文件失真。
-   - 重新生成 Skill 或修正状态。
-6. 如果 Skill 存在：
-   - 后续对话优先读取该 Skill，再按健康、命理、故事、支线任务等专项协议分流。
+   - 重新生成对话 Skill 或修正状态。
+6. 如果 `analysis_skill_path` 存在但 `conversation_skill_path` 不存在：
+   - 说明只有分析 / 校准 Skill，没有生成对话 / 执行 Skill。
+   - 新建版本化对话 Skill，不覆盖分析 Skill。
+7. 如果两个 Skill 都存在：
+   - 后续对话先读取分析 / 校准 Skill，再读取当前版本对话 Skill，再按健康、命理、故事、支线任务等专项协议分流。
 
 ## 主线进度查询
 
@@ -111,8 +129,9 @@
 50 题：{answered_count}/{total_questions}，{已完成 / 进行中}
 用户模型分析：{已完成 / 未完成}
 外部模型推荐：{已完成 / 未完成}
-用户专属 Skill：{已生成 / 未生成 / 状态失真}
-当前主 Skill：{user_skill_path 或 无}
+分析 / 校准 Skill：{已存在 / 缺失}，校准分数：{0-100 或 未设置}
+对话 / 执行 Skill：{已生成 / 未生成 / 状态失真}，版本：{version 或 无}
+当前主 Skill：{conversation_skill_path 或 user_skill_path 或 无}
 
 下一步：
 {继续答题 / 生成用户模型 / 生成用户专属 Skill / 进入日常成长与专项训练}
@@ -161,18 +180,37 @@
 - 每个模型必须有明确用途。
 - 模型组合必须服务用户自己的主线，而不是把用户变成别人。
 
-## 用户专属 Skill 内容
+## 分析 / 校准 Skill 内容
 
 `user-space/skills/inner-capacity-personal/SKILL.md` 至少包含：
 
 1. YAML frontmatter：
    - `name`
    - `description`
-2. 当前阶段判断。
-3. 用户已有思维模型。
-4. 推荐扩展模型组合。
-5. 默认对话工作流。
-6. 场景路由：
+2. 校准分数：`0-100`。
+3. 当前阶段判断。
+4. 用户已有思维模型。
+5. 推荐扩展模型组合。
+6. 已验证证据与待验证假设。
+7. 需要继续校准的问题。
+
+分析 / 校准 Skill 可以在每次重要对话、每日检查、故事作业、真实行动反馈后更新。
+
+## 对话 / 执行 Skill 内容
+
+`user-space/skills/inner-capacity-dialogue-v*/SKILL.md` 至少包含：
+
+1. YAML frontmatter：
+   - `name`
+   - `description`
+   - `version`
+   - `role=conversation`
+   - `source_analysis_skill`
+   - `source_calibration_score`
+2. 双 Skill 架构说明。
+3. 启用顺序。
+4. 默认回答流程。
+5. 场景路由：
    - 工作推进
    - 技术成长
    - 身体底盘
@@ -181,8 +219,11 @@
    - 情绪自控
    - 风险边界
    - 长期主义
+6. 输出风格。
 7. 不纵容清单。
-8. 需要继续校准的问题。
+8. 校准与版本规则。
+
+对话 / 执行 Skill 不应在日常校准中被频繁修改。只有当分析 Skill 的校准分数达到 100%，或用户明确要求生成新版本时，才新建下一版对话 Skill。
 
 ## 输出规则
 
@@ -191,7 +232,7 @@
 - 当前状态是什么。
 - 读取了哪些来源。
 - 生成到了哪个路径。
-- 后续如果切换不到，应该检查哪个状态字段。
+- 后续如果切换不到，应检查 `analysis_skill_path`、`conversation_skill_path`、`conversation_skill_version` 和 `user_skill_path`。
 
 ## 边界
 

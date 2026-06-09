@@ -13,8 +13,9 @@
 
 ## protocols
 
-可执行规则和路由：
+可执行规则和路由（所有指令先经过 `skills/agent-router/SKILL.md` 和 `AGENT_ROUTER_PROTOCOL.md` 路由检查）：
 
+- `docs/protocols/AGENT_ROUTER_PROTOCOL.md`（详细路由规则：每次用户消息必须先执行 Router Check）
 - `docs/protocols/ONBOARDING_PROTOCOL.md`
 - `docs/protocols/ASSESSMENT_PROTOCOL.md`
 - `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md`
