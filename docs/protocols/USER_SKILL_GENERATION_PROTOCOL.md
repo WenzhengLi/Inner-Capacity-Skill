@@ -45,6 +45,17 @@
 - `templates/user-space/USER_MODEL.md`
 - `templates/user-space/skills/inner-capacity-personal/SKILL.md`
 
+## Skill Frontmatter 规则
+
+所有 `SKILL.md` 的 YAML frontmatter 只能包含：
+
+- `name`
+- `description`
+
+`version`、`role`、`source_analysis_skill`、`source_calibration_score`、`calibration_score`、`generated_at` 等运行元数据必须写入正文，例如 `## 元数据` 或 `## 校准状态`。
+
+生成或更新用户专属 Skill 后，必须运行 `skill-creator` 的 `quick_validate.py` 验证 Skill 目录。验证失败时，不得标记为已生成。
+
 ## 状态字段
 
 `user-space/state.json` 应至少包含：
@@ -187,12 +198,18 @@
 1. YAML frontmatter：
    - `name`
    - `description`
-2. 校准分数：`0-100`。
-3. 当前阶段判断。
-4. 用户已有思维模型。
-5. 推荐扩展模型组合。
-6. 已验证证据与待验证假设。
-7. 需要继续校准的问题。
+2. 正文 `## 元数据`：
+   - `role: calibration`
+   - `calibration_score: 0-100`
+   - `calibration_scale: 0-100`
+   - `last_calibrated_at`
+   - `current_conversation_skill`
+3. 校准分数：`0-100`。
+4. 当前阶段判断。
+5. 用户已有思维模型。
+6. 推荐扩展模型组合。
+7. 已验证证据与待验证假设。
+8. 需要继续校准的问题。
 
 分析 / 校准 Skill 可以在每次重要对话、每日检查、故事作业、真实行动反馈后更新。
 
@@ -203,14 +220,17 @@
 1. YAML frontmatter：
    - `name`
    - `description`
+2. 正文 `## 元数据`：
    - `version`
-   - `role=conversation`
+   - `role: conversation`
    - `source_analysis_skill`
    - `source_calibration_score`
-2. 双 Skill 架构说明。
-3. 启用顺序。
-4. 默认回答流程。
-5. 场景路由：
+   - `calibration_scale`
+   - `generated_at`
+3. 双 Skill 架构说明。
+4. 启用顺序。
+5. 默认回答流程。
+6. 场景路由：
    - 工作推进
    - 技术成长
    - 身体底盘
@@ -219,9 +239,9 @@
    - 情绪自控
    - 风险边界
    - 长期主义
-6. 输出风格。
-7. 不纵容清单。
-8. 校准与版本规则。
+7. 输出风格。
+8. 不纵容清单。
+9. 校准与版本规则。
 
 对话 / 执行 Skill 不应在日常校准中被频繁修改。只有当分析 Skill 的校准分数达到 100%，或用户明确要求生成新版本时，才新建下一版对话 Skill。
 

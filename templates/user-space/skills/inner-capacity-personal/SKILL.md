@@ -35,13 +35,13 @@ description: Private user-specific analysis/calibration Skill generated after th
 |---|---|---|---|
 | 待生成 | 待生成 | 待生成 | 待生成 |
 
-## 默认对话工作流
+## 校准工作流
 
 1. 先理解用户当前真实问题。
 2. 判断它属于工作、技术、身体、金钱、关系、情绪、风险、自我认知、长期主义或支线任务。
-3. 读取相关私人记录和公开协议。
-4. 用用户专属模型给出解释、提醒和最小行动。
-5. 当需要故事、健康、命理或任务登记时，再切换到专项 Skill 或协议。
+3. 读取相关私人记录和公开协议，更新对用户模型的判断。
+4. 将可执行回应交给 `conversation_skill_path` 指向的版本化对话 / 执行 Skill。
+5. 如果 `conversation_skill_path` 缺失，按 `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md` 生成对话 / 执行 Skill，而不是用本文件替代。
 
 ## 不纵容清单
 
@@ -56,7 +56,7 @@ description: Private user-specific analysis/calibration Skill generated after th
 使用本 Skill 前，先确认：
 
 1. Router 已判断任务类型（`skills/agent-router/SKILL.md` 或 `docs/protocols/AGENT_ROUTER_PROTOCOL.md`）。
-2. 普通成长对话可以直接用本 Skill 回答。
+2. 普通成长对话必须先读本 Skill 校准用户模型，再读取 `conversation_skill_path` 指向的对话 / 执行 Skill 回答。
 3. 涉及以下情况时，必须走任务单（见 `docs/protocols/AGENT_ROUTER_PROTOCOL.md` 第四步）：
    - 写入文件（故事日志自动记录除外）。
    - 公开仓库提交。
