@@ -1,0 +1,4 @@
+interface:
+  display_name: "模型迭代管理器"
+  short_description: "自动管理思维模型提取、扩展评审、校验与版本激活门槛"
+  default_prompt: "Use $model-iteration-manager to start and manage the next jointly reviewed thinking-model iteration."

@@ -31,17 +31,27 @@ description: Private user-specific analysis/calibration Skill generated after th
 
 待生成。
 
+生成扩展组合前必须先完整列出用户已有模型，再从人物蒸馏库寻找当前阶段少数高杠杆模型。不得按每个短板机械匹配一个人物，也不得未经讨论直接生成对话Skill。
+
 | 模型 | 补足盲区 | 使用场景 | 禁用边界 |
 |---|---|---|---|
 | 待生成 | 待生成 | 待生成 | 待生成 |
+
+## 用户共同评审
+
+- 已批准试用：待填写。
+- 拒绝：待填写。
+- 暂缓：待填写。
+- 未完成共同评审时，不得把候选模型写入正式对话Skill。
 
 ## 校准工作流
 
 1. 先理解用户当前真实问题。
 2. 判断它属于工作、技术、身体、金钱、关系、情绪、风险、自我认知、长期主义或支线任务。
 3. 读取相关私人记录和公开协议，更新对用户模型的判断。
-4. 将可执行回应交给 `conversation_skill_path` 指向的版本化对话 / 执行 Skill。
-5. 如果 `conversation_skill_path` 缺失，按 `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md` 生成对话 / 执行 Skill，而不是用本文件替代。
+4. 识别用户已有模型，再从已获用户批准的扩展组合中选择一个补盲区。
+5. 将可执行回应交给 `conversation_skill_path` 指向的版本化对话 / 执行 Skill。
+6. 如果 `conversation_skill_path` 缺失，先检查共同评审是否完成；完成后再按 `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md` 生成，而不是用本文件替代。
 
 ## 不纵容清单
 

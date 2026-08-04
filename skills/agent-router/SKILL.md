@@ -19,7 +19,7 @@ description: Mandatory entry-point Skill for every user message. Before any task
 
 ### 3. 判断任务类型
 
-按 `docs/protocols/AGENT_ROUTER_PROTOCOL.md` 第二步的 11 个分类匹配。先确定主任务类型。若消息同时涉及安全边界，叠加对应禁止规则。
+按 `docs/protocols/AGENT_ROUTER_PROTOCOL.md` 第二步的 12 个分类匹配。先确定主任务类型。若消息同时涉及安全边界，叠加对应禁止规则。
 
 ### 4. 读取对应 Skill / 协议
 

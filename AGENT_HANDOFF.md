@@ -36,6 +36,11 @@ The goal is to build a reusable growth-oriented persona/thinking-model Skill. It
    - Defines the closed loop from 50 answered questions to user model evaluation, analysis/calibration Skill, and versioned dialogue Skill.
    - If the analysis Skill exists but no conversation Skill exists, generate a new versioned dialogue Skill without overwriting the analysis Skill.
 
+4.5. `docs/protocols/MODEL_ITERATION_PROTOCOL.md` and `skills/model-iteration-manager/SKILL.md`
+   - Manage every post-baseline model version through a state machine: evidence, existing models, distilled-persona candidates, explicit user review, generation, validation, and activation.
+   - Never generate a new dialogue version directly from summarized conversations.
+   - Preserve previous models and versions; save the user's approval words and validate all local model-source paths.
+
 5. `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`, `docs/protocols/SIDE_TASK_PROTOCOL.md`, `docs/protocols/FUNCTION_CONSOLIDATION_PROTOCOL.md`
    - Explain how to handle long reflective chat, optional side tasks, and reusable feature consolidation.
 
@@ -105,6 +110,7 @@ Related self-distillation direction:
 - Long reflective user outputs should enter chat analysis mode. Follow `docs/protocols/CHAT_ANALYSIS_PROTOCOL.md`: understand first, then analyze what is right, what may be simplified, how to extend it, what model it suggests, and what small action is acceptable.
 - If chat produces concrete actions, use `docs/protocols/SIDE_TASK_PROTOCOL.md` and ask whether to register them as side tasks in `user-space/side-tasks/INDEX.md`. Pending tasks live in `user-space/side-tasks/NOT_STARTED.md`; started or completed tasks each need their own file under `user-space/side-tasks/tasks/`.
 - If the user says “功能沉淀” or asks to make the project more portable, follow `docs/protocols/FUNCTION_CONSOLIDATION_PROTOCOL.md`. Only reusable, portable capabilities belong in public project files; personal thoughts and records belong in `user-space/`.
+- If the user asks to iterate, rebuild, or generate the next model/dialogue version, use `skills/model-iteration-manager/SKILL.md`. Run its status script first, stop at the explicit user-review gate, and activate only after validation and user authorization.
 - `【讲故事】` triggers one story-based thinking-model training session.
 - `【继续】` is no longer a story trigger; interpret it only in the current conversational context.
 - Story mode must start with bold Markdown `**{故事名}·{流派}**` as the top title, not the generic word `故事`.

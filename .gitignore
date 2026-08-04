@@ -3,3 +3,4 @@
 /private/
 *.local.md
 state.local.json
+/tmp_*_extract.txt

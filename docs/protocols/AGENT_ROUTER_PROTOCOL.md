@@ -69,21 +69,28 @@
 **禁止**：不得把个人经历、健康记录、命理记录写入公开项目。
 **输出**：判断属于公开功能、个人记录、支线任务还是聊天素材，再按规则处理。
 
-### 9. 用户专属 Skill 生成或修正
+### 9. 思维模型版本迭代
+
+**触发词/场景**：`迭代下一版`、`再迭代一版`、`重构模型`、`重构对话 Skill`、`生成3.0`、`下一版对话`、`沉淀这次迭代逻辑`
+**必须读取**：`skills/model-iteration-manager/SKILL.md`、`docs/protocols/MODEL_ITERATION_PROTOCOL.md`、`user-space/state.json`、当前用户模型、分析Skill、对话Skill、人物蒸馏库索引
+**禁止**：不得根据对话归纳后直接生成；不得绕过用户共同评审；不得无授权删除旧模型；不得在校验前切换当前版本入口。
+**输出**：当前迭代状态、下一门槛、私人迭代工作区，或验证后的激活结果。
+
+### 10. 用户专属 Skill 生成或修正
 
 **触发词/场景**：`生成我的 Skill`、`修正我的 Skill`、`重新生成用户专属 Skill`、`为什么没切到我的 Skill`、`检查我的模型状态`
 **必须读取**：`docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md`、`user-space/state.json`、`user-space/USER_MODEL.md` 或 `user-space/USER_MODEL_DIAGNOSIS_DRAFT.md`、分析 / 校准 Skill、当前对话 / 执行 Skill（如果存在）、`docs/inventory/PERSONA_SKILL_INDEX.md`、`docs/inventory/EXTERNAL_SKILL_MODELS.md`
 **禁止**：不得把分析 / 校准 Skill 当成对话 / 执行 Skill。不得覆盖现有分析 Skill 或旧版对话 Skill；生成对话 Skill 时应新建版本化目录。
 **输出**：当前状态、缺口判断、下一步任务单，或确认后的新版本生成结果。
 
-### 10. 普通成长聊天
+### 11. 普通成长聊天
 
 **触发条件**：不属于上述任何类型的一般对话。
 **必须读取**：`user-space/state.json`。如果 `personal_skill_ready`，必须先读取 `analysis_skill_path` 指向的分析 / 校准 Skill，再读取 `conversation_skill_path` 指向的对话 / 执行 Skill；如果新字段缺失，则回退读取 `user_skill_path` 并提示状态字段过旧。
 **禁止**：不得在未读取用户专属 Skill 的情况下直接用通用模板回答。不得修改 user-space 文件除非用户明确要求。
 **输出**：基于对话 / 执行 Skill 的模型和场景路由回答，落到一个最小动作；如发现应校准分析 Skill，说明建议更新内容。
 
-### 11. 代码 / 提交 / 仓库操作
+### 12. 代码 / 提交 / 仓库操作
 
 **触发词**：`提交`、`commit`、`push`、`git`、`代码`、`仓库`、`同步`
 **必须读取**：相关目标文件。

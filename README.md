@@ -47,6 +47,8 @@ templates/user-space/ -> user-space/
 | 轻量评估 | 使用 15 题做初步建模，准确度低于完整 50 题 |
 | 评估我 | 基于 50 题和沟通记录生成 `user-space/USER_MODEL.md` |
 | 生成我的 Skill | 基于 50 题、用户模型和外部模型索引生成版本化对话 Skill，如 `user-space/skills/inner-capacity-dialogue-v0.1.0/SKILL.md` |
+| 迭代下一版 / 生成3.0 | 启动模型迭代状态机：证据、已有模型、人物库扩展、共同评审、生成、校验、激活 |
+| 查看模型迭代状态 | 查看当前迭代阶段、缺失门槛和下一步 |
 | 检查 Skill 状态 | 检查是题没答完、模型没分析，还是用户专属 Skill 没生成 |
 | 查看主线进度 / 查看 Skill 进度 | 查看 50 题、用户模型分析、外部模型推荐和用户专属 Skill 的当前进度 |
 | 讲故事 | 根据训练计划讲一个故事，训练一个主概念 |
@@ -90,7 +92,7 @@ templates/user-space/ -> user-space/
 - 对话 / 执行 Skill：在某个校准分数上生成的版本化 Skill，负责后续对话怎么听、怎么判断、怎么回应、怎么训练、怎么落动作。
 
 ```text
-答题 -> 生成用户模型 -> 生成分析/校准 Skill -> 生成版本化对话 Skill -> 后续对话先读校准层再读对话层
+答题与对话 -> 识别用户已有思维模型 -> 从人物蒸馏库推荐高杠杆扩展模型 -> 与用户讨论批准 -> 生成分析/校准 Skill -> 生成版本化对话 Skill -> 用真实行动继续验证
 ```
 
 分析 / 校准 Skill 默认保存在：
@@ -109,10 +111,13 @@ user-space/skills/inner-capacity-dialogue-v0.1.0/SKILL.md
 
 - 题没答完：继续每次 3 题。
 - 题答完但没分析：生成 `user-space/USER_MODEL.md` 或诊断草案。
-- 已分析但没生成对话 Skill：新建版本化对话 Skill，不覆盖分析 / 校准 Skill。
+- 已分析但模型扩展尚未评审：先列出已有模型，从人物蒸馏库提出少数高杠杆候选，与用户讨论批准；不得直接生成。
+- 模型组合已批准但没生成对话 Skill：新建版本化对话 Skill，不覆盖旧版本。
 - 对话 Skill 已生成：后续对话先读取分析 / 校准 Skill，再读取对话 / 执行 Skill，再按故事、健康、命理、支线任务等专项协议分流。
 
 具体规则见 `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md`。
+
+后续版本由 `skills/model-iteration-manager/SKILL.md` 和 `docs/protocols/MODEL_ITERATION_PROTOCOL.md` 管理。每轮在 `user-space/model-iterations/v{version}/` 建立私人工作区。系统可以自动建立产物、检查人物来源、校验Skill并推进状态，但不能替用户批准模型组合；没有保存用户明确批准原话，不允许生成或激活正式新版。
 
 可用指令：
 
