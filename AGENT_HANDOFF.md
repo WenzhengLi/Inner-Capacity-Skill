@@ -8,6 +8,11 @@ The goal is to build a reusable growth-oriented persona/thinking-model Skill. It
 
 ## Read Order
 
+0. `user-space/ACTIVE_RUNTIME.md`
+   - 用户说“傻妞”、进入内在成长对话或请求成长建议时，先读取这个唯一运行入口。
+   - 从其中取得当前激活的用户蒸馏、校准 Skill 与对话 Skill；禁止从版本目录、旧文件或聊天上下文猜测当前版本。
+   - 日常对话先产生用户蒸馏候选与校准证据；只有满足入口中列出的升级门槛并取得用户评审后，才能生成或激活下一版对话 Skill。
+
 0. `docs/protocols/STARTUP_SYNC_PROTOCOL.md`
    - Before any user instruction, check `user-space/SYNC_STATE.json`.
    - Compare current time with `last_pull_at`; if it is older than 24 hours, fetch and pull safely.

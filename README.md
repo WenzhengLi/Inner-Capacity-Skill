@@ -9,9 +9,11 @@
 ## 当前状态
 
 - 已从 `D:\Dev\Inner-Capacity-Skill` 完整迁入 Obsidian，并接续原 Git 历史与远端。
-- 当前个人模型：[[user-space/USER-MODEL|用户思维模型 2.0]]。
-- 当前对话 Skill：`user-space/skills/inner-capacity-dialogue-v0.2.0/SKILL.md`。
+- 傻妞运行入口：[[user-space/ACTIVE_RUNTIME|当前激活的用户蒸馏与对话 Skill]]。
 - 全部思维模型入口：[[Model-Index]]。
+
+> [!important] 说“傻妞”后怎么运行
+> 先读 [[user-space/ACTIVE_RUNTIME]]，再读取其中声明的用户蒸馏、校准 Skill 与对话 Skill。日常对话优先沉淀用户蒸馏；只有用户蒸馏形成明确版本差异、完成模型评审并获得用户批准后，才允许新建和激活下一版对话 Skill。
 
 > [!note] 迁移完整性
 > 已迁入公开内核、`user-space`、版本化对话 Skill、模型迭代资料和参考模型工作树；共 3,100 个文件。09 已接续原仓库 `main` 历史并推送迁移提交 `be7ce48` 到原远端。嵌套参考仓库的 `.git` 元数据与两个临时 PDF 提取文件未迁入，因为它们不是 Skill 内容。
@@ -44,6 +46,7 @@ templates/user-space/ -> user-space/
 | 路径 | 用途 |
 |---|---|
 | [[Model-Index]] | 全部个人、人物、外部与协议思维模型的总索引 |
+| [[user-space/ACTIVE_RUNTIME]] | 傻妞唯一运行入口：当前激活版本、双蒸馏闭环与回写边界 |
 | `README.md` | 给用户看的上手说明 |
 | `AGENT_HANDOFF.md` | 给后续 Agent 看的接手说明 |
 | `docs/core/` | 目标、设计决策、蒸馏方法、人格草案 |
