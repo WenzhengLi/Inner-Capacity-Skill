@@ -14,6 +14,12 @@ The goal is to build a reusable growth-oriented persona/thinking-model Skill. It
    - Do not update the sync timestamp on every check; update it only after the over-24-hour sync flow produces a result.
    - If remote updates touch files that also have local changes or local intent conflicts, stop and ask the user to choose before merging.
 
+0.25. `docs/protocols/CONTEXT_COMPACTION_PROTOCOL.md`
+   - Before executing a new user instruction, check context budget.
+   - If the software exposes context usage and it is `>= 80%`, create a behavior-level compaction summary before continuing.
+   - If exact usage is not exposed, treat long multi-turn tasks, large file reads/writes, resume/compaction events, dual-Skill work, calibration, investment analysis, story scoring, health/destiny, or protocol edits as possible `>= 80%` context.
+   - After compaction/resume, reread `state.json`, the analysis Skill, the conversation Skill, Router protocol, and the current task protocol before acting.
+
 0.5. `skills/agent-router/SKILL.md` 和 `docs/protocols/AGENT_ROUTER_PROTOCOL.md`
    - 每次用户消息到达后，先按 Router Skill 判断任务类型，再读取对应 Skill 和协议文件。
    - Router 是所有指令的强制入口，不得跳过。
@@ -100,6 +106,7 @@ Related self-distillation direction:
 ## Current Interaction Rules
 
 - Before any instruction, follow `docs/protocols/STARTUP_SYNC_PROTOCOL.md`: compare current time with `user-space/SYNC_STATE.json.last_pull_at`; check every time, but update the timestamp only after the over-24-hour sync flow finishes; if remote updates conflict with local files or local intent, list updates, list conflict files, and ask the user to choose.
+- Before any instruction, follow `docs/protocols/CONTEXT_COMPACTION_PROTOCOL.md`: if context usage is exposed and `>= 80%`, compact first; if not exposed but the task is long, resumed, file-heavy, or involves dual Skill/calibration/investment/story/health/destiny/protocol edits, create a behavior-level summary and reread critical files before continuing.
 - For main conversation, first check `user-space/state.json`. If `stage=personal_skill_ready`, read `analysis_skill_path` as the analysis/calibration Skill, then read `conversation_skill_path` as the executable dialogue Skill before applying specialized protocols. If these newer fields are missing, fall back to `user_skill_path` and note that the state schema is old.
 - If the user-specific Skill cannot be used, follow `docs/protocols/USER_SKILL_GENERATION_PROTOCOL.md`: incomplete questions mean continue the 50-question assessment; completed questions without evaluation mean generate the user model; evaluation with only an analysis/calibration Skill means generate a new versioned dialogue Skill, without overwriting the analysis Skill.
 - `查看主线进度`, `查看 Skill 进度`, `检查 Skill 状态`, `检查我的模型状态`, and `我现在到哪一步了` are progress-query commands. Read `user-space/state.json`, verify the private Skill file if needed, then report assessment, evaluation, model recommendation, private Skill generation, current stage, and next step.
@@ -112,6 +119,7 @@ Related self-distillation direction:
 - If the user says “功能沉淀” or asks to make the project more portable, follow `docs/protocols/FUNCTION_CONSOLIDATION_PROTOCOL.md`. Only reusable, portable capabilities belong in public project files; personal thoughts and records belong in `user-space/`.
 - If the user asks to iterate, rebuild, or generate the next model/dialogue version, use `skills/model-iteration-manager/SKILL.md`. Run its status script first, stop at the explicit user-review gate, and activate only after validation and user authorization.
 - `【讲故事】` triggers one story-based thinking-model training session.
+- When the user asks for a story but the current conversation has no meaningful historical communication records, first switch to the inner-capacity Skill by reading `user-space/state.json`, then `analysis_skill_path`, then `conversation_skill_path`; only then run `skills/story-thinking-trainer/SKILL.md`.
 - `【继续】` is no longer a story trigger; interpret it only in the current conversational context.
 - Story mode must start with bold Markdown `**{故事名}·{流派}**` as the top title, not the generic word `故事`.
 - Story mode should place `立意：...` and `时间：...` after the story body, before `点破概念：...`, so the opening reads naturally.

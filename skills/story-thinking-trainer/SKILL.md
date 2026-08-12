@@ -19,10 +19,23 @@ Use this Skill when the user says:
 
 Do not use `【继续】` as a story trigger unless the local context clearly means continuing the current story task.
 
+## No Local Chat Context Guard
+
+If the current conversation has no meaningful historical communication records, or the user only says `讲故事`, `【讲故事】`, or names a story style, do not begin from the generic story template.
+
+Before selecting the theme or writing the story:
+
+1. Read `user-space/state.json`.
+2. If `stage=personal_skill_ready`, read `analysis_skill_path` as the analysis/calibration Skill.
+3. Then read `conversation_skill_path` as the executable dialogue Skill.
+4. Only after this inner-capacity switch, continue with story style selection, theme selection, quality gate, and logging.
+
+This prevents a cold-start story from ignoring the user's long-term model.
+
 ## Core Contract
 
 1. Tell exactly one story.
-2. The top title must be the story name, not the generic word `故事`.
+2. The top title must be bold Markdown: `**{故事名称}·{流派}**`, or bold story name alone if no style is available, not the generic word `故事`.
 3. Do not reveal the concept before the story.
 4. Use a concrete scene before abstraction.
 5. After the story, reveal the concept, explain the metaphor, apply it gently, give open homework, and log the row.
@@ -143,6 +156,7 @@ Layer 1: choose the life training direction the user most needs right now. Do no
 - risk boundary: irreversible loss, leverage, quitting, health cost, rollback
 - self-knowledge: identity, ability circle, true strengths, false labels
 - long-termism: compounding, patience, stable rules, delayed return
+- human weaknesses: first impressions, cognitive cost, vanity, fear, laziness, self-justification, loss aversion
 
 Layer 2: choose one concrete model that can train that direction:
 
@@ -161,6 +175,8 @@ Layer 2: choose one concrete model that can train that direction:
 - requirement specification
 - health as base capacity
 - relationship boundary and emotional translation
+- low-cost being understood / entrance signals
+- cognitive cost / judgment shortcuts
 
 Selection rule:
 
@@ -176,13 +192,12 @@ Selection rule:
 ## Output Template
 
 ```text
-{故事名称}
-
-流派：{莫言式 / 契诃夫式 / 莫泊桑式 / 欧亨利式}
-立意：{工作推进 / 技术成长 / 身体底盘 / 金钱欲望 / 关系沟通 / 情绪自控 / 轻创业 / 风险边界 / 自我认知 / 长期主义}
-时间：{YYYY-MM-DD}
+**{故事名称}·{莫言式 / 契诃夫式 / 莫泊桑式 / 欧亨利式}**
 
 {story body}
+
+立意：{工作推进 / 技术成长 / 身体底盘 / 金钱欲望 / 关系沟通 / 情绪自控 / 轻创业 / 风险边界 / 自我认知 / 长期主义 / 人性的弱点}
+时间：{YYYY-MM-DD}
 
 点破概念：{概念名}
 
