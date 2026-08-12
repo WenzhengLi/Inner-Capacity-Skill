@@ -8,13 +8,13 @@
 
 ## 当前状态
 
-- 已从 `D:\Dev\Inner-Capacity-Skill` 完整迁入 Obsidian，并接续原 Git 历史与远端；旧目录暂时保留，待确认后删除。
+- 已从 `D:\Dev\Inner-Capacity-Skill` 完整迁入 Obsidian，并接续原 Git 历史与远端。
 - 当前个人模型：[[user-space/USER-MODEL|用户思维模型 2.0]]。
 - 当前对话 Skill：`user-space/skills/inner-capacity-dialogue-v0.2.0/SKILL.md`。
 - 全部思维模型入口：[[Model-Index]]。
 
 > [!note] 迁移完整性
-> 已迁入公开内核、`user-space`、版本化对话 Skill、模型迭代资料和参考模型工作树；共 3,100 个文件。09 已接续原仓库 `main` 历史并推送迁移提交 `be7ce48` 到原远端。嵌套参考仓库的 `.git` 元数据与两个临时 PDF 提取文件未迁入，因为它们不是 Skill 内容。原目录仍保留，待未来独立确认后再清理。
+> 已迁入公开内核、`user-space`、版本化对话 Skill、模型迭代资料和参考模型工作树；共 3,100 个文件。09 已接续原仓库 `main` 历史并推送迁移提交 `be7ce48` 到原远端。嵌套参考仓库的 `.git` 元数据与两个临时 PDF 提取文件未迁入，因为它们不是 Skill 内容。
 
 ## 与第二大脑的关系
 
