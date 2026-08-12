@@ -2,7 +2,7 @@
 
 ## 第零步：区分产品对话与协作角色
 
-- `切换对话skill`、`进入对话skill`、普通成长聊天和 `讲故事` 属于内在能力产品运行时。先读取 `user-space/state.json`，再按当前字段依次读取 `analysis_skill_path` 与 `conversation_skill_path`。
+- `切换对话skill`、`进入对话skill`、普通成长聊天和 `讲故事` 属于内在能力产品运行时。先读取 `user-space/ACTIVE_RUNTIME.md`，再读取 `user-space/state.json`，并只按当前入口与状态指针依次读取 `analysis_skill_path` 与 `conversation_skill_path`。
 - 只有用户明确说 `切换aiskill`、`aiskill，开始工作` 或要求维护协作资产，才进入 `.agents/skills/ai-collaboration-manager/SKILL.md`。
 - 私人 Skill 的版本选择只信任状态指针；不得缓存旧路径、从目录名猜最新版或在稳定 Router 中硬编码版本号。
 - 蒸馏或升级流程更新状态指针后，普通聊天与故事分流自动使用新版本。目标路径缺失或不一致时停止并报告，不得退回通用模板。
@@ -14,7 +14,8 @@
 1. 读取 `user-space/SYNC_STATE.json`，超过 24 小时未同步则先执行同步（规则见 `STARTUP_SYNC_PROTOCOL.md`）。
 2. 执行上下文压缩检查（规则见 `CONTEXT_COMPACTION_PROTOCOL.md`）：如果软件层暴露上下文使用率且 `>= 80%`，先生成行为级压缩摘要；如果不暴露精确百分比，但对话跨多轮复杂任务、读取/修改大量文件、发生恢复/压缩/续接，或任务涉及双 Skill、校准分数、投资分析、故事作业、健康/命理、协议修改，也按“可能超过 80%”处理。
 3. 压缩或恢复后，必须重新读取 `user-space/state.json`、分析 / 校准 Skill、对话 / 执行 Skill、Router 协议和当前任务协议。
-4. 读取 `user-space/state.json`。如果不存在，路由到【初始化】。
+4. 读取 `user-space/ACTIVE_RUNTIME.md`，确定当前激活的用户蒸馏、校准 Skill 与对话 Skill；它不存在或与状态、实际文件冲突时停止并报告，不猜测版本。
+5. 读取 `user-space/state.json`。如果不存在，路由到【初始化】。
 
 ## 第二步：判断任务类型
 
@@ -96,7 +97,7 @@
 ### 11. 普通成长聊天
 
 **触发条件**：不属于上述任何类型的一般对话。
-**必须读取**：`user-space/state.json`。如果 `personal_skill_ready`，必须先读取 `analysis_skill_path` 指向的分析 / 校准 Skill，再读取 `conversation_skill_path` 指向的对话 / 执行 Skill；如果新字段缺失，则回退读取 `user_skill_path` 并提示状态字段过旧。
+**必须读取**：`user-space/ACTIVE_RUNTIME.md`、`user-space/state.json`。如果 `personal_skill_ready`，必须先读取 `analysis_skill_path` 指向的分析 / 校准 Skill，再读取 `conversation_skill_path` 指向的对话 / 执行 Skill；如果新字段缺失，则回退读取 `user_skill_path` 并提示状态字段过旧。
 **禁止**：不得在未读取用户专属 Skill 的情况下直接用通用模板回答。不得修改 user-space 文件除非用户明确要求。
 **输出**：基于对话 / 执行 Skill 的模型和场景路由回答，落到一个最小动作；如发现应校准分析 Skill，按低风险自动校准规则处理。
 
